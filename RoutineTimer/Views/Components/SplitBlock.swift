@@ -6,15 +6,27 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SplitBlock: View {
     @Binding var isSplitPopupVisible: Bool
+    @Query(sort: \Routine.createdAt, order: .forward)
+    private var routines: [Routine]
+    
     var body: some View {
         HStack {
-            Text("4 Splits")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(Color(red: 0.65, green: 0.84, blue: 0.67))
+            if let split = routines.last?.split {
+                Text("\(split) Splits")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(red: 0.65, green: 0.84, blue: 0.67))
+            } else {
+                Text("You didn't select a split")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(red: 0.65, green: 0.84, blue: 0.67))
+            }
+            
             
             Spacer()
             
@@ -36,6 +48,7 @@ struct SplitBlock: View {
                             .frame(width: 340, height: 40)
                             .padding()
                             .contentShape(Rectangle())
+                            .foregroundColor(.white)
                     )
             }
         }

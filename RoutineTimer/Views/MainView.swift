@@ -6,19 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MainView: View {
-    private let samples: [String] = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "5",
-        "5",
-    ]
     @State var isSplitPopupVisible = false
     @State var isSettingsPopupVisible = false
+    @Query(sort: \Routine.createdAt, order: .forward)
+    private var routines: [Routine]
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -54,15 +49,19 @@ struct MainView: View {
                 .padding(.horizontal, 18)
                 
                 ScrollView {
-                    ForEach(samples, id: \.self) { sample in
-                        NavigationLink(
-                            destination: RoutineView(sample: sample),
-                            label: {
-                                RoutineBlock()
-                                    .frame(width: 360, height: 120)
-                                    .padding(.bottom, 10)
-                            }
-                        )
+                    if let splits = routines.last?.splits {
+                        ForEach(splits, id: \.self) { sample in
+                            NavigationLink(
+                                destination: RoutineView(sample: "1"),
+                                label: {
+                                    RoutineBlock()
+                                        .frame(width: 360, height: 120)
+                                        .padding(.bottom, 10)
+                                }
+                            )
+                        }
+                    } else {
+                        Text("HI")
                     }
                 }
             }
