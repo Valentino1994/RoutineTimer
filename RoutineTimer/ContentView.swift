@@ -23,6 +23,7 @@ struct ContentView: View {
             .fullScreenCover(isPresented: $isPopupVisible) {
                 FirstView(isPopupVisible: $isPopupVisible)
             }
+            .preferredColorScheme(.dark)
     }
 }
 
