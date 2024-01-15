@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FirstView: View {
-    @Binding var isPopupVisible: Bool
+    @Binding var isFirstPopupVisible: Bool
     
     var body: some View {
         NavigationView {
@@ -42,7 +42,7 @@ struct FirstView: View {
                     Spacer()
                 }
                 
-                NavigationLink(destination: SelectRoutineSplitView(isPopupVisible: $isPopupVisible, isEdit: false)) {
+                NavigationLink(destination: SelectRoutineSplitView(isSplitPopupVisible: .constant(false), isFirstPopupVisible: $isFirstPopupVisible, isEdit: false)) {
                     ConfirmTextButton(title: "Start")
                 }
             }
@@ -51,5 +51,5 @@ struct FirstView: View {
 }
 
 #Preview {
-    FirstView(isPopupVisible: .constant(true))
+    FirstView(isFirstPopupVisible: .constant(true))
 }

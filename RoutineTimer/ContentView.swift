@@ -10,19 +10,20 @@ import SwiftData
 
 struct ContentView: View {
     @Query private var routine: [Routine]
-    @State private var isPopupVisible = false
+    @State var isFirstPopupVisible = false
     @State var selection = 0
 
     var body: some View {
         MainView()
             .onAppear {
                 if (routine.count == 0) {
-                    isPopupVisible.toggle()
+                    isFirstPopupVisible.toggle()
                 }
             }
-            .fullScreenCover(isPresented: $isPopupVisible) {
-                FirstView(isPopupVisible: $isPopupVisible)
+            .fullScreenCover(isPresented: $isFirstPopupVisible) {
+                FirstView(isFirstPopupVisible: $isFirstPopupVisible)
             }
+            .preferredColorScheme(.dark)
     }
 }
 

@@ -9,8 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct SelectRoutineSplitView: View {
-    @State var step = 0
-    @Binding var isPopupVisible: Bool
+    @Binding var isSplitPopupVisible: Bool
+    @Binding var isFirstPopupVisible: Bool
     var isEdit: Bool
     @State var selectedSplitId = -1;
     @Environment(\.modelContext) private var modelContext
@@ -35,19 +35,19 @@ struct SelectRoutineSplitView: View {
                 
                 VStack {
                     HStack {
-                        SplitCircleButton(circleId: 0, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 0, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
                         Spacer()
-                        SplitCircleButton(circleId: 2, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 2, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
                         Spacer()
-                        SplitCircleButton(circleId: 3, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 3, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
                     }
                     
                     HStack {
-                        SplitCircleButton(circleId: 4, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 4, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
                         Spacer()
-                        SplitCircleButton(circleId: 5, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 5, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
                         Spacer()
-                        SplitCircleButton(circleId: 6, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 6, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
                     }
                     .padding(.top, 18)
                 }
@@ -59,7 +59,8 @@ struct SelectRoutineSplitView: View {
                     } else {
                         SaveRoutine(selectedSplitId: selectedSplitId)
                     }
-                    isPopupVisible = false
+                    isSplitPopupVisible = false
+                    isFirstPopupVisible = false
                 }) {
                     ConfirmTextButton(title: "Confirm")
                 }
@@ -103,15 +104,29 @@ extension SelectRoutineSplitView {
         routine.split = selectedSplitId
         routine.updatedAt = Date()
         
-        if let splits = routine.splits {
-            for split in splits {
-                split.exercises = []
-                split.updatedAt = Date()
+        // Generate Splits
+        var splits: [Split] = []
+        if (selectedSplitId == 0) {
+            let split = Split(splitId: UUID(), routineId: routine.routineId, isDone: false, createdAt: Date(), updatedAt: Date())
+            splits.append(split)
+        } else {
+            for _ in 0..<selectedSplitId {
+                let split = Split(splitId: UUID(), routineId: routine.routineId, isDone: false, createdAt: Date(), updatedAt: Date())
+                splits.append(split)
             }
         }
+        
+        // Save splits
+        for split in splits {
+            modelContext.insert(split)
+        }
+        
+        // Insert splits to routine
+        routine.splits = splits
+        modelContext.insert(routine)
     }
 }
 
 #Preview {
-    SelectRoutineSplitView(isPopupVisible: .constant(true), isEdit: false)
+    SelectRoutineSplitView(isSplitPopupVisible: .constant(true), isFirstPopupVisible: .constant(true), isEdit: false)
 }
