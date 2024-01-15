@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SplitBlock: View {
+    @Binding var isSplitPopupVisible: Bool
     var body: some View {
         HStack {
             Text("4 Splits")
@@ -17,22 +18,26 @@ struct SplitBlock: View {
             
             Spacer()
             
-            Rectangle()
-                .foregroundColor(.clear)
-                .frame(width: 95, height: 38)
-                .cornerRadius(20)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .inset(by: 1.5)
-                        .stroke(Color(red: 0.93, green: 0.62, blue: 0.33), lineWidth: 2)
-                )
-                .overlay(
-                    Text("Change")
-                        .font(.system(size: 16, weight: .bold, design: .default))
-                        .frame(width: 340, height: 40)
-                        .padding()
-                        .contentShape(Rectangle())
-                )
+            Button(action: {
+                isSplitPopupVisible.toggle()
+            }) {
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 95, height: 38)
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .inset(by: 1.5)
+                            .stroke(Color(red: 0.93, green: 0.62, blue: 0.33), lineWidth: 2)
+                    )
+                    .overlay(
+                        Text("Change")
+                            .font(.system(size: 16, weight: .bold, design: .default))
+                            .frame(width: 340, height: 40)
+                            .padding()
+                            .contentShape(Rectangle())
+                    )
+            }
         }
         .padding(.horizontal, 15)
         .frame(width: 360, height: 80)
@@ -44,5 +49,5 @@ struct SplitBlock: View {
 }
 
 #Preview {
-    SplitBlock()
+    SplitBlock(isSplitPopupVisible: .constant(true))
 }

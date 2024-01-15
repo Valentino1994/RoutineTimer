@@ -9,8 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct SelectRoutineSplitView: View {
-    @State var step = 0
-    @Binding var isPopupVisible: Bool
+    @Binding var isSplitPopupVisible: Bool
+    @Binding var isFirstPopupVisible: Bool
     var isEdit: Bool
     @State var selectedSplitId = -1;
     @Environment(\.modelContext) private var modelContext
@@ -59,7 +59,8 @@ struct SelectRoutineSplitView: View {
                     } else {
                         SaveRoutine(selectedSplitId: selectedSplitId)
                     }
-                    isPopupVisible = false
+                    isSplitPopupVisible = false
+                    isFirstPopupVisible = false
                 }) {
                     ConfirmTextButton(title: "Confirm")
                 }
@@ -113,5 +114,5 @@ extension SelectRoutineSplitView {
 }
 
 #Preview {
-    SelectRoutineSplitView(isPopupVisible: .constant(true), isEdit: false)
+    SelectRoutineSplitView(isSplitPopupVisible: .constant(true), isFirstPopupVisible: .constant(true), isEdit: false)
 }

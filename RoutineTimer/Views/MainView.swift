@@ -17,7 +17,8 @@ struct MainView: View {
         "5",
         "5",
     ]
-    
+    @State var isSplitPopupVisible = false
+    @State var isSettingsPopupVisible = false
     var body: some View {
         NavigationStack {
             VStack {
@@ -26,16 +27,20 @@ struct MainView: View {
                         .font(.title)
                         .fontWeight(.bold)
                     Spacer()
-                    Image(systemName: "gearshape")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 28, height: 28) // Set the desired width and height
-                        .foregroundColor(.white) // Set the color of the image
-                        .padding() // Add padding if needed
+                    Button(action: {
+                        isSettingsPopupVisible.toggle()
+                    }) {
+                        Image(systemName: "gearshape")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 28, height: 28) // Set the desired width and height
+                            .foregroundColor(.white) // Set the color of the image
+                    }
                 }
                 .padding(.horizontal, 18)
+                .padding(.vertical)
                 
-                SplitBlock()
+                SplitBlock(isSplitPopupVisible: $isSplitPopupVisible)
                     .padding(.horizontal, 15)
                 
                 HStack() {
@@ -61,6 +66,12 @@ struct MainView: View {
                     }
                 }
             }
+        }
+        .fullScreenCover(isPresented: $isSplitPopupVisible) {
+            SelectRoutineSplitView(isSplitPopupVisible: $isSplitPopupVisible, isFirstPopupVisible: .constant(false), isEdit: true)
+        }
+        .fullScreenCover(isPresented: $isSettingsPopupVisible) {
+            SettingsView(isSettingsPopupVisible: $isSettingsPopupVisible)
         }
         .preferredColorScheme(.dark)
         

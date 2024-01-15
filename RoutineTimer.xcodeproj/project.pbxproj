@@ -24,6 +24,7 @@
 		5553FE562B54E74C00501984 /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553FE552B54E74B00501984 /* RoutineView.swift */; };
 		5553FE582B54F79100501984 /* SplitBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553FE572B54F79100501984 /* SplitBlock.swift */; };
 		5553FE5A2B55088900501984 /* RoutineBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553FE592B55088900501984 /* RoutineBlock.swift */; };
+		5553FE5C2B551F8100501984 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553FE5B2B551F8100501984 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		5553FE552B54E74B00501984 /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		5553FE572B54F79100501984 /* SplitBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitBlock.swift; sourceTree = "<group>"; };
 		5553FE592B55088900501984 /* RoutineBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBlock.swift; sourceTree = "<group>"; };
+		5553FE5B2B551F8100501984 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				223CD2AE2B53CE4C00459FC9 /* FirstView.swift */,
 				223CD2B02B53CF0600459FC9 /* SelectRoutineSplitView.swift */,
 				5553FE552B54E74B00501984 /* RoutineView.swift */,
+				5553FE5B2B551F8100501984 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				223CD2AA2B53CB7E00459FC9 /* ExerciseType.swift in Sources */,
 				5553FE562B54E74C00501984 /* RoutineView.swift in Sources */,
 				223CD2B62B53CF9300459FC9 /* ConfirmTextButton.swift in Sources */,
+				5553FE5C2B551F8100501984 /* SettingsView.swift in Sources */,
 				223CD2972B53C85000459FC9 /* Item.swift in Sources */,
 				223CD2A42B53CB4700459FC9 /* Routine.swift in Sources */,
 				223CD2932B53C85000459FC9 /* RoutineTimerApp.swift in Sources */,
