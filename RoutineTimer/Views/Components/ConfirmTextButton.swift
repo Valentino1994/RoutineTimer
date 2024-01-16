@@ -13,7 +13,7 @@ struct ConfirmTextButton: View {
     var body: some View {
         Rectangle()
             .foregroundColor(.clear)
-            .frame(width: 340, height: 55)
+            .frame(width: 360, height: 70)
             .cornerRadius(20)
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
@@ -25,7 +25,7 @@ struct ConfirmTextButton: View {
                     .font(.system(size: 24, weight: .bold, design: .default))
                     .foregroundColor(.white)
                     .padding()
-                    .frame(width: 340, height: 55)
+                    .frame(width: 360, height: 55)
                     .contentShape(Rectangle())
             )
     }

@@ -8,32 +8,27 @@
 import SwiftUI
 
 struct WorkoutBlock: View {
+    var workoutType: Int
+    
     var body: some View {
         HStack {
-            if true {
+            if workoutType % 2 == 1 {
                 HStack {
                     VStack(alignment: .leading) {
-                        HStack {
-                            Text("Back")
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 6)
-                                .foregroundColor(.white)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(.white, lineWidth: 1.5)
-                                )
-                            Text("Triceps")
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 6)
-                                .foregroundColor(.white)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(.white, lineWidth: 1.5)
-                                )
-                        }
-                        Spacer()
-                        Text("4 workouts")
+                        Text("Back")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                        Text("Workout Name")
                             .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color(red: 0.93, green: 1, blue: 0.33))
+                        Text("3 repts of 5 sets")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                        Text("30 sec rest among sets")
+                            .font(.caption)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     }
@@ -43,22 +38,31 @@ struct WorkoutBlock: View {
                     
                     VStack(alignment: .trailing) {
                         Spacer()
-                        Text("Last Workout")
-                            .font(.caption)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                        Text("00:00:00")
-                            .font(.title2)
+                        Text("32 kg")
+                            .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     }
                     .padding(.vertical, 20)
                 }
-                .frame(width: 326, height: 118)
+                .frame(width: 326, height: 140)
             } else {
-                Text("Add Your First Workout !")
-                    .frame(width: 326, height: 118)
-                    .foregroundColor(.white)
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Rest")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color(red: 0.65, green: 0.84, blue: 0.67))
+                        Text("5 min")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }
+                    .padding(.vertical, 20)
+                    
+                    Spacer()
+                }
+                .frame(width: 326, height: 90)
             }
         }
         .padding(.horizontal, 15)
@@ -71,5 +75,5 @@ struct WorkoutBlock: View {
 }
 
 #Preview {
-    WorkoutBlock()
+    WorkoutBlock(workoutType: 0)
 }

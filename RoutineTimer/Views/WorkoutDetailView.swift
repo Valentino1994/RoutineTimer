@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct WorkoutDetailView: View {
-    var sample: String
+    var sample: Int
     var body: some View {
-        Text(sample)
+        Text(String(sample))
     }
 }
 
 #Preview {
-    WorkoutDetailView(sample: "HI")
+    WorkoutDetailView(sample: 1)
 }
