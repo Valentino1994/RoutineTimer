@@ -15,6 +15,11 @@ struct AddWorkoutDetailsView: View {
     @State var isAddWorkoutDetailSetsPopupVisible: Bool = false
     @State var isAddWorkoutDetailRestsPopupVisible: Bool = false
     
+    @State var repeats: Int = 0
+    @State var sets: Int = 0
+    @State var minutes: Int = 0
+    @State var seconds: Int = 0
+    
     var body: some View {
         VStack {
             CustomStatusBar(step: $step)
@@ -47,7 +52,7 @@ struct AddWorkoutDetailsView: View {
                     Button(action: {
                         isAddWorkoutDetailWeightsPopupVisible.toggle()
                     }) {
-                        ExerciseBlock(sample: 30)
+                        ExerciseBlock(text: "")
                             .frame(width: 358, height: 60)
                             .padding(.bottom, 10)
                     }
@@ -60,7 +65,7 @@ struct AddWorkoutDetailsView: View {
                     Button(action: {
                         isAddWorkoutDetailRepeatsPopupVisible.toggle()
                     }) {
-                        ExerciseBlock(sample: 30)
+                        ExerciseBlock(text: String(repeats))
                             .frame(width: 358, height: 60)
                             .padding(.bottom, 10)
                     }
@@ -73,7 +78,7 @@ struct AddWorkoutDetailsView: View {
                     Button(action: {
                         isAddWorkoutDetailSetsPopupVisible.toggle()
                     }) {
-                        ExerciseBlock(sample: 30)
+                        ExerciseBlock(text: String(sets))
                             .frame(width: 358, height: 60)
                             .padding(.bottom, 10)
                     }
@@ -88,7 +93,7 @@ struct AddWorkoutDetailsView: View {
                 Button(action: {
                     isAddWorkoutDetailRestsPopupVisible.toggle()
                 }) {
-                    ExerciseBlock(sample: 30)
+                    ExerciseBlock(text: String(1))
                         .frame(width: 358, height: 60)
                         .padding(.bottom, 10)
                 }
@@ -110,11 +115,17 @@ struct AddWorkoutDetailsView: View {
                 .presentationDetents([.medium])
         }
         .sheet(isPresented: $isAddWorkoutDetailRepeatsPopupVisible) {
-            AddWorkoutDetailRepeatsPopup(isAddWorkoutDetailRepeatsPopupVisible: $isAddWorkoutDetailRepeatsPopupVisible)
+            AddWorkoutDetailRepeatsPopup(
+                isAddWorkoutDetailRepeatsPopupVisible: $isAddWorkoutDetailRepeatsPopupVisible,
+                repeats: $repeats
+            )
                 .presentationDetents([.medium])
         }
         .sheet(isPresented: $isAddWorkoutDetailSetsPopupVisible) {
-            AddWorkoutDetailSetsPopup(isAddWorkoutDetailSetsPopupVisible: $isAddWorkoutDetailSetsPopupVisible)
+            AddWorkoutDetailSetsPopup(
+                isAddWorkoutDetailSetsPopupVisible: $isAddWorkoutDetailSetsPopupVisible,
+                sets: $sets
+            )
                 .presentationDetents([.medium])
         }
         .sheet(isPresented: $isAddWorkoutDetailRestsPopupVisible) {

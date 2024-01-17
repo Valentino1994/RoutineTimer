@@ -9,12 +9,12 @@ import SwiftUI
 
 struct AddWorkoutDetailRestsPopup: View {
     @Binding var isAddWorkoutDetailRestsPopupVisible: Bool
-    @State private var selectedMinuteIndex = 0
+    @Binding var minutes: Int
     let minMinuteValue: Int = 0
     let maxMinuteValue: Int = 60
     let minuteStep: Int = 1
     
-    @State private var selectedSecondIndex = 0
+    @Binding var seconds: Int
     let minSecondValue: Int = 0
     let maxSecondValue: Int = 60
     let secondStep: Int = 1
@@ -22,7 +22,7 @@ struct AddWorkoutDetailRestsPopup: View {
     var body: some View {
         VStack {
             HStack {
-                Picker(selection: $selectedMinuteIndex, label: Text("Select Number")) {
+                Picker(selection: $minutes, label: Text("Select Number")) {
                     ForEach(0..<numberOfSteps(minValue: minMinuteValue, maxValue: maxMinuteValue, step: minuteStep), id: \.self) { index in
                         Text("\(self.value(for: index, minValue: minMinuteValue, step: minuteStep))")
                     }
@@ -33,7 +33,7 @@ struct AddWorkoutDetailRestsPopup: View {
                 Text("min")
                     .font(.title3)
                 
-                Picker(selection: $selectedSecondIndex, label: Text("Select Number")) {
+                Picker(selection: $seconds, label: Text("Select Number")) {
                     ForEach(0..<numberOfSteps(minValue: minSecondValue, maxValue: maxSecondValue, step: secondStep), id: \.self) { index in
                         Text("\(self.value(for: index, minValue: minSecondValue, step: secondStep))")
                     }
@@ -43,6 +43,7 @@ struct AddWorkoutDetailRestsPopup: View {
                 
                 Text("sec")
                     .font(.title3)
+                    .padding(.trailing, 10)
             }
             
             Button(action: {

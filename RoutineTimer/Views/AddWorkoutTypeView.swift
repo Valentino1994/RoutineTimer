@@ -22,6 +22,8 @@ struct AddWorkoutTypeView: View {
         3,
         4
     ]
+    @State var hi: Int? = nil
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -42,7 +44,7 @@ struct AddWorkoutTypeView: View {
                         NavigationLink(
                             destination: AddWorkoutNameView(step: .constant(1)),
                             label: {
-                                ExerciseBlock(sample: sample)
+                                ExerciseBlock(text: 1)
                                     .frame(width: 360, height: 80)
                                     .padding(.bottom, 10)
                             }

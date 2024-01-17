@@ -50,7 +50,7 @@ struct AddWorkoutNameView: View {
                     NavigationLink(
                         destination: AddWorkoutDetailsView(step: .constant(2)),
                         label: {
-                            ExerciseBlock(sample: sample)
+                            ExerciseBlock(text: String(1))
                                 .frame(width: 360, height: 80)
                                 .padding(.bottom, 10)
                         }

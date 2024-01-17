@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddWorkoutDetailRepeatsPopup: View {
     @Binding var isAddWorkoutDetailRepeatsPopupVisible: Bool
-    @State private var selectedIntegerIndex = 0
+    @Binding var repeats: Int
     let minValue: Int = 0
     let maxValue: Int = 100
     let step: Int = 1
@@ -17,7 +17,7 @@ struct AddWorkoutDetailRepeatsPopup: View {
     var body: some View {
         VStack {
             HStack {
-                Picker(selection: $selectedIntegerIndex, label: Text("Select Number")) {
+                Picker(selection: $repeats, label: Text("Select Number")) {
                     ForEach(0..<numberOfSteps(minValue: minValue, maxValue: maxValue, step: step), id: \.self) { index in
                         Text("\(self.value(for: index, minValue: minValue, step: step))")
                     }
@@ -46,5 +46,5 @@ struct AddWorkoutDetailRepeatsPopup: View {
 }
 
 #Preview {
-    AddWorkoutDetailRepeatsPopup(isAddWorkoutDetailRepeatsPopupVisible: .constant(true))
+    AddWorkoutDetailRepeatsPopup(isAddWorkoutDetailRepeatsPopupVisible: .constant(true), repeats: .constant(0))
 }

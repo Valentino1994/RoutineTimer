@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExerciseBlock: View {
-    var sample: Int
+    var text: String
     
     var body: some View {
         Rectangle()
@@ -20,7 +20,7 @@ struct ExerciseBlock: View {
                     .stroke(.white, lineWidth: 2)
             )
             .overlay(
-                Text(String(sample))
+                Text("\(text)")
                     .font(.title)
                     .fontWeight(.bold)
                     .frame(width: 330, height: 40)
@@ -32,5 +32,5 @@ struct ExerciseBlock: View {
 }
 
 #Preview {
-    ExerciseBlock(sample: 1)
+    ExerciseBlock(text: "1")
 }
