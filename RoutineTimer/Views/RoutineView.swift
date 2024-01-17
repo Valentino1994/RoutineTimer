@@ -10,11 +10,11 @@ import SwiftData
 
 struct RoutineView: View {
     var sample: String
-    var samples: [String] = [
-        "1",
-        "2",
-        "3",
-        "4"
+    var samples: [Int] = [
+        1,
+        2,
+        3,
+        4
     ]
     @State var isTimerPopupVisible: Bool = false
     @State var isAddWorkoutVisible: Bool = false
@@ -31,16 +31,16 @@ struct RoutineView: View {
                             .fontWeight(.bold)
                         Text("Last Time : Perfect")
                             .font(.caption)
+                            .fontWeight(.bold)
                     }
                     Spacer()
                     Button(action: {
                         isTimerPopupVisible.toggle()
                     }) {
-                        Image(systemName: "plus.circle")
+                        Image("StartButton")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 28, height: 28) // Set the desired width and height
-                            .foregroundColor(.white) // Set the color of the image
+                            .frame(width: 38, height: 38)
                     }
                 }
                 .padding(.vertical)
@@ -69,11 +69,11 @@ struct RoutineView: View {
                         Image(systemName: "plus.circle")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 28, height: 28) // Set the desired width and height
-                            .foregroundColor(.white) // Set the color of the image
+                            .frame(width: 32, height: 32)
+                            .foregroundColor(.white)
                     }
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 10)
                 
                 ScrollView {
 //                    if let exercises = routines.last?.splits?[0].exercises {
@@ -94,21 +94,20 @@ struct RoutineView: View {
                         NavigationLink(
                             destination: WorkoutDetailView(sample: sample),
                             label: {
-                                WorkoutBlock()
-                                    .frame(width: 360, height: 120)
-                                    .padding(.bottom, 10)
+                                WorkoutBlock(workoutType: sample)
+                                    .padding(.bottom, 6)
                             }
                         )
                     }
                 }
             }
-            .padding(.horizontal, 18)
+            .padding(.horizontal, 20)
         }
         .fullScreenCover(isPresented: $isTimerPopupVisible) {
-            TimerView()
+            TimerView(isTimerPopupVisible: $isTimerPopupVisible)
         }
-        .fullScreenCover(isPresented: $isAddWorkoutVisible) {
-            AddWorkoutView()
+        .sheet(isPresented: $isAddWorkoutVisible) {
+            AddWorkoutTypeView(isAddWorkoutVisible: $isAddWorkoutVisible)
         }
         .preferredColorScheme(.dark)
     }

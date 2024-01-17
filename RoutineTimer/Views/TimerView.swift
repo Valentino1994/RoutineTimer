@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct TimerView: View {
+    @Binding var isTimerPopupVisible: Bool
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            isTimerPopupVisible.toggle()
+        }) {
+            Text("Timer View")
+        }
     }
 }
 
 #Preview {
-    TimerView()
+    TimerView(isTimerPopupVisible: .constant(true))
 }
