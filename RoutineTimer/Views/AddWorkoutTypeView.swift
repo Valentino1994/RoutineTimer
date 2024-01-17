@@ -44,7 +44,7 @@ struct AddWorkoutTypeView: View {
                         NavigationLink(
                             destination: AddWorkoutNameView(step: .constant(1)),
                             label: {
-                                ExerciseBlock(text: 1)
+                                ExerciseBlock(text: String(1))
                                     .frame(width: 360, height: 80)
                                     .padding(.bottom, 10)
                             }

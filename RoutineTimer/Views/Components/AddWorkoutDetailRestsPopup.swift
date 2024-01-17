@@ -66,5 +66,5 @@ struct AddWorkoutDetailRestsPopup: View {
 }
 
 #Preview {
-    AddWorkoutDetailRestsPopup(isAddWorkoutDetailRestsPopupVisible: .constant(true))
+    AddWorkoutDetailRestsPopup(isAddWorkoutDetailRestsPopupVisible: .constant(true), minutes: .constant(1), seconds: .constant(1))
 }

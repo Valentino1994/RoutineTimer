@@ -9,11 +9,16 @@ import SwiftUI
 
 struct AddWorkoutDetailsView: View {
     @Binding var step: Int
-    @State private var selectedIndex = 0
+    @State private var isWorkout = 0
     @State var isAddWorkoutDetailWeightsPopupVisible: Bool = false
     @State var isAddWorkoutDetailRepeatsPopupVisible: Bool = false
     @State var isAddWorkoutDetailSetsPopupVisible: Bool = false
     @State var isAddWorkoutDetailRestsPopupVisible: Bool = false
+    
+    @State var isPound:Int = 0
+    @State var weights: Int = 0
+    @State var weightIntegerIndex: Int = 0
+    @State var weightFloatingIndex: Int = 0
     
     @State var repeats: Int = 0
     @State var sets: Int = 0
@@ -34,7 +39,7 @@ struct AddWorkoutDetailsView: View {
             .padding(.bottom, 10)
             .padding(.horizontal, 20)
             
-            Picker("", selection: self.$selectedIndex) {
+            Picker("", selection: self.$isWorkout) {
                 Text("Workout")
                     .tag(0)
                 Text("Rest")
@@ -44,7 +49,7 @@ struct AddWorkoutDetailsView: View {
             .padding(.bottom, 18)
             .pickerStyle(SegmentedPickerStyle())
             
-            if selectedIndex == 0 {
+            if isWorkout == 0 {
                 VStack(alignment: .leading) {
                     Text("Weights")
                         .font(.title3)
@@ -52,7 +57,7 @@ struct AddWorkoutDetailsView: View {
                     Button(action: {
                         isAddWorkoutDetailWeightsPopupVisible.toggle()
                     }) {
-                        ExerciseBlock(text: "")
+                        ExerciseBlock(text: calculateWeight(isPound: isPound, weightInteger: weightIntegerIndex, weightFloating: weightFloatingIndex))
                             .frame(width: 358, height: 60)
                             .padding(.bottom, 10)
                     }
@@ -93,7 +98,7 @@ struct AddWorkoutDetailsView: View {
                 Button(action: {
                     isAddWorkoutDetailRestsPopupVisible.toggle()
                 }) {
-                    ExerciseBlock(text: String(1))
+                    ExerciseBlock(text: "\(minutes) m  \(seconds) s")
                         .frame(width: 358, height: 60)
                         .padding(.bottom, 10)
                 }
@@ -111,7 +116,12 @@ struct AddWorkoutDetailsView: View {
         }
         .navigationBarTitle("Details", displayMode: .inline)
         .sheet(isPresented: $isAddWorkoutDetailWeightsPopupVisible) {
-            AddWorkoutDetailWeightsPopup(isAddWorkoutDetailWeightsPopupVisible: $isAddWorkoutDetailWeightsPopupVisible, selectedSegment: .constant(0))
+            AddWorkoutDetailWeightsPopup(
+                isAddWorkoutDetailWeightsPopupVisible: $isAddWorkoutDetailWeightsPopupVisible,
+                isPound: $isPound,
+                weightIntegerIndex: $weightIntegerIndex,
+                weightFloatingIndex: $weightFloatingIndex
+            )
                 .presentationDetents([.medium])
         }
         .sheet(isPresented: $isAddWorkoutDetailRepeatsPopupVisible) {
@@ -129,7 +139,11 @@ struct AddWorkoutDetailsView: View {
                 .presentationDetents([.medium])
         }
         .sheet(isPresented: $isAddWorkoutDetailRestsPopupVisible) {
-            AddWorkoutDetailRestsPopup(isAddWorkoutDetailRestsPopupVisible: $isAddWorkoutDetailRestsPopupVisible)
+            AddWorkoutDetailRestsPopup(
+                isAddWorkoutDetailRestsPopupVisible: $isAddWorkoutDetailRestsPopupVisible,
+                minutes: $minutes,
+                seconds: $seconds
+            )
                 .presentationDetents([.medium])
         }
         .preferredColorScheme(.dark)
@@ -138,6 +152,17 @@ struct AddWorkoutDetailsView: View {
         }
     }
 }
+
+extension AddWorkoutDetailsView {
+    func calculateWeight(isPound: Int, weightInteger: Int, weightFloating: Int) -> String {
+        if isPound == 0 {
+            return "\(weightInteger) . \(weightFloating * 25) kg"
+        } else {
+            return "\(weightInteger) . \(weightFloating * 25) lbs"
+        }
+    }
+}
+
 
 #Preview {
     AddWorkoutDetailsView(step: .constant(2))
