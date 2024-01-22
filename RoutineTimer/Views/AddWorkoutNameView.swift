@@ -22,6 +22,7 @@ struct AddWorkoutNameView: View {
         3,
         4
     ]
+    var bodyType: String = ""
     var body: some View {
         VStack {
             CustomStatusBar(step: $step)

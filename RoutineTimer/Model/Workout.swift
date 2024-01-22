@@ -1,5 +1,5 @@
 //
-//  Exercise.swift
+//  workout.swift
 //  RoutineTimer
 //
 //  Created by Geunil Park on 1/14/24.
@@ -9,10 +9,10 @@ import Foundation
 import SwiftData
 
 @Model
-final class Exercise {
-    @Attribute(.unique, originalName: "exercise_id") var exerciseId: UUID
-    @Attribute(originalName: "exercise_type") var exerciseType: ExerciseType
-    @Attribute(originalName: "exercise_name") var exerciseName: String
+final class Workout {
+    @Attribute(.unique, originalName: "workout_id") var workoutId: UUID
+    @Attribute(originalName: "workout_type") var workoutType: WorkoutType
+    @Attribute(originalName: "workout_name") var workoutName: String
     @Attribute(originalName: "is_rest") var isRest: Bool
     @Attribute(originalName: "is_kilogram") var isKilogram: Bool
     var weight: Int
@@ -22,10 +22,10 @@ final class Exercise {
     @Attribute(originalName: "created_at") var createdAt: Date
     @Attribute(originalName: "updated_at") var updatedAt: Date
     
-    init(exerciseId: UUID, exerciseType: ExerciseType, exerciseName: String, isRest: Bool, isKilogram: Bool, weight: Int, set: Int, restTime: Int, rept: Int, createdAt: Date, updatedAt: Date) {
-        self.exerciseId = exerciseId
-        self.exerciseType = exerciseType
-        self.exerciseName = exerciseName
+    init(workoutId: UUID, workoutType: WorkoutType, workoutName: String, isRest: Bool, isKilogram: Bool, weight: Int, set: Int, restTime: Int, rept: Int, createdAt: Date, updatedAt: Date) {
+        self.workoutId = workoutId
+        self.workoutType = workoutType
+        self.workoutName = workoutName
         self.isRest = isRest
         self.isKilogram = isKilogram
         self.weight = weight
