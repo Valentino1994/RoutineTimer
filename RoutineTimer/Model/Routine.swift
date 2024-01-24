@@ -15,7 +15,8 @@ final class Routine {
     @Attribute(originalName: "created_at") var createdAt: Date
     @Attribute(originalName: "updated_at") var updatedAt: Date
     
-    var splits: [Split]? = [Split]()
+    @Relationship(inverse: \Split.routine)
+    var splits:[Split]? = []
     
     init(routineId: UUID, split: Int, createdAt: Date, updatedAt: Date) {
         self.routineId = routineId
