@@ -19,11 +19,13 @@ actor CustomContainer {
         let container = try! ModelContainer(for: schema, configurations: [configuration])
         
         if shouldCreateDefaults {
-//            shouldCreateDefaults = false
+            shouldCreateDefaults = false
             
             let workoutTypes = CustomJSONDecoder.decode(from: "DefaultWorkoutType", type: [WorkoutType].self)
-            workoutTypes?.forEach { container.mainContext.insert($0) }
-
+            
+            workoutTypes?.forEach {
+                container.mainContext.insert($0)
+            }
         }
 
         return container

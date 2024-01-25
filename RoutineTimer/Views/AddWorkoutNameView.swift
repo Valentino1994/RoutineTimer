@@ -10,18 +10,8 @@ import SwiftUI
 struct AddWorkoutNameView: View {
     @Binding var step: Int
     @State var isAddWorkoutNamePopupVisible: Bool = false
-    var samples: [Int] = [
-        1,
-        2,
-        3,
-        4,
-        2,
-        3,
-        4,
-        2,
-        3,
-        4
-    ]
+    var workoutNames: [WorkoutName]
+    
     var bodyType: String = ""
     var body: some View {
         VStack {
@@ -47,11 +37,11 @@ struct AddWorkoutNameView: View {
             .padding(.horizontal, 18)
             
             ScrollView {
-                ForEach(samples, id: \.self) { sample in
+                ForEach(workoutNames, id: \.self) { workoutName in
                     NavigationLink(
                         destination: AddWorkoutDetailsView(step: .constant(2)),
                         label: {
-                            ExerciseBlock(text: String(1))
+                            ExerciseBlock(text: workoutName.workoutName)
                                 .frame(width: 360, height: 80)
                                 .padding(.bottom, 10)
                         }
@@ -69,5 +59,5 @@ struct AddWorkoutNameView: View {
 }
 
 #Preview {
-    AddWorkoutNameView(step: .constant(1))
+    AddWorkoutNameView(step: .constant(1), workoutNames: [])
 }

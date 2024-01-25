@@ -10,18 +10,7 @@ import SwiftData
 
 struct AddWorkoutTypeView: View {
     @Binding var isAddWorkoutVisible: Bool
-    @State var step = 0
-    var bodyTypes: [String] = [
-        "Body",
-        "Chest",
-        "Back",
-        "Legs",
-        "Shoulders",
-        "Core",
-        "Biceps",
-        "Triceps"
-    ]
-    
+    @State var step = 0    
     @Query var workoutTypes: [WorkoutType]
     
     var body: some View {
@@ -42,7 +31,7 @@ struct AddWorkoutTypeView: View {
                 ScrollView {
                     ForEach(workoutTypes, id: \.self) { workoutType in
                         NavigationLink(
-                            destination: AddWorkoutNameView(step: .constant(1), bodyType: workoutType.workoutBodyType),
+                            destination: AddWorkoutNameView(step: .constant(1), workoutNames: workoutType.workoutNames ?? [], bodyType: workoutType.workoutBodyType),
                             label: {
                                 ExerciseBlock(text: workoutType.workoutBodyType)
                                     .frame(width: 360, height: 80)
@@ -59,6 +48,7 @@ struct AddWorkoutTypeView: View {
         }
         .preferredColorScheme(.dark)
         .onAppear() {
+            print(workoutTypes.count)
             step = 0
         }
     }

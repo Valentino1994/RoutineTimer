@@ -1,6 +1,305 @@
 [
     {
-        "workoutBodyType": "HI"
+        "workoutBodyType": "Calisthenics",
+        "workoutNames": [
+            {
+                "workoutName": "Pull Up"
+            },
+            {
+                "workoutName": "Push Up"
+            },
+            {
+                "workoutName": "Dips"
+            },
+            {
+                "workoutName": "Squat"
+            },
+            {
+                "workoutName": "Lunge"
+            },
+            {
+                "workoutName": "Plank"
+            },
+            {
+                "workoutName": "Burpee"
+            },
+            {
+                "workoutName": "Mountain Climber"
+            },
+            {
+                "workoutName": "Pistol Squats"
+            },
+            {
+                "workoutName": "Leg Raise"
+            }
+        ]
+    },
+    {
+        "workoutBodyType": "Chest",
+        "workoutNames": [
+            {
+                "workoutName": "Bench Press"
+            },
+            {
+                "workoutName": "Incline Bench Press"
+            },
+            {
+                "workoutName": "Decline Bench Press"
+            },
+            {
+                "workoutName": "Chest Fly"
+            },
+            {
+                "workoutName": "Dips"
+            },
+            {
+                "workoutName": "Cable Crossover"
+            },
+            {
+                "workoutName": "Push Ups"
+            },
+            {
+                "workoutName": "Seated Chest Press"
+            },
+            {
+                "workoutName": "Barbell Pullover"
+            },
+            {
+                "workoutName": "Chest Fly"
+            },
+            {
+                "workoutName": "Cable Pushdown"
+            }
+        ]
+    },
+    {
+        "workoutBodyType": "Back",
+        "workoutNames": [
+            {
+                "workoutName": "Pull Ups"
+            },
+            {
+                "workoutName": "Lat Pulldown"
+            },
+            {
+                "workoutName": "Barbell Rows"
+            },
+            {
+                "workoutName": "Single-Arm Dumbbell Rows"
+            },
+            {
+                "workoutName": "Cable Rows"
+            },
+            {
+                "workoutName": "Hyperextension"
+            },
+            {
+                "workoutName": "Machine Pulldown"
+            },
+            {
+                "workoutName": "Seated Cable Rows"
+            },
+            {
+                "workoutName": "T-Bar Rows"
+            },
+            {
+                "workoutName": "Barbell Rows"
+            }
+        ]
+    },
+    {
+        "workoutBodyType": "Legs",
+        "workoutNames": [
+            {
+                "workoutName": "Squats"
+            },
+            {
+                "workoutName": "Lunges"
+            },
+            {
+                "workoutName": "Deadlift"
+            },
+            {
+                "workoutName": "Leg Press"
+            },
+            {
+                "workoutName": "Leg Curl"
+            },
+            {
+                "workoutName": "Leg Extension"
+            },
+            {
+                "workoutName": "Calf Raises"
+            },
+            {
+                "workoutName": "Jump Squats"
+            },
+            {
+                "workoutName": "Romanian Deadlift"
+            },
+            {
+                "workoutName": "Kettlebell Swing"
+            }
+        ]
+    },
+    {
+        "workoutBodyType": "Shoulders",
+        "workoutNames": [
+            {
+                "workoutName": "Overhead Press"
+            },
+            {
+                "workoutName": "Shoulder Press Machine"
+            },
+            {
+                "workoutName": "Side Lateral Raise"
+            },
+            {
+                "workoutName": "Cable Lateral Raise"
+            },
+            {
+                "workoutName": "Bent-Over Lateral Raise"
+            },
+            {
+                "workoutName": "Single Dumbbell Overhead Press"
+            },
+            {
+                "workoutName": "Barbell Shrug"
+            },
+            {
+                "workoutName": "Behind the Neck Press"
+            },
+            {
+                "workoutName": "Seated Lateral Raise"
+            }
+        ]
+    },
+    {
+        "workoutBodyType": "Core",
+        "workoutNames": [
+            {
+                "workoutName": "Plank"
+            },
+            {
+                "workoutName": "Side Plank"
+            },
+            {
+                "workoutName": "Leg Raises"
+            },
+            {
+                "workoutName": "Crunch"
+            },
+            {
+                "workoutName": "Russian Twist"
+            },
+            {
+                "workoutName": "Toe Touch"
+            },
+            {
+                "workoutName": "Hip Raise"
+            },
+            {
+                "workoutName": "Scissor Crunch"
+            },
+            {
+                "workoutName": "Dead Bug"
+            }
+        ]
+    },
+    {
+        "workoutBodyType": "Biceps",
+        "workoutNames": [
+            {
+                "workoutName": "Barbell Curl"
+            },
+            {
+                "workoutName": "Dumbbell Curl"
+            },
+            {
+                "workoutName": "Hammer Curl"
+            },
+            {
+                "workoutName": "Cable Hammer Curl"
+            },
+            {
+                "workoutName": "Cable Curl"
+            },
+            {
+                "workoutName": "Concentration Curl"
+            },
+            {
+                "workoutName": "Reverse Curl"
+            },
+            {
+                "workoutName": "E-Z Bar Curl"
+            },
+            {
+                "workoutName": "Preacher Curl"
+            }
+        ]
+    },
+    {
+        "workoutBodyType": "Triceps",
+        "workoutNames": [
+            {
+                "workoutName": "Triceps Dips"
+            },
+            {
+                "workoutName": "Triceps Push-up"
+            },
+            {
+                "workoutName": "Skull Crushers"
+            },
+            {
+                "workoutName": "Triceps Extension"
+            },
+            {
+                "workoutName": "Cable Pushdown"
+            },
+            {
+                "workoutName": "Decline Triceps Extension"
+            },
+            {
+                "workoutName": "Triceps Kickback"
+            },
+            {
+                "workoutName": "Bench Dips"
+            },
+            {
+                "workoutName": "Overhead Triceps Extension"
+            }
+        ]
+    },
+    {
+        "workoutBodyType": "Hip",
+        "workoutNames": [
+            {
+                "workoutName": "Squat"
+            },
+            {
+                "workoutName": "Romanian Deadlift"
+            },
+            {
+                "workoutName": "Hip Thrust"
+            },
+            {
+                "workoutName": "Lunge"
+            },
+            {
+                "workoutName": "Side Leg Raise"
+            },
+            {
+                "workoutName": "Hip Abduction"
+            },
+            {
+                "workoutName": "Hip Adduction"
+            },
+            {
+                "workoutName": "Buddy Up Hip Raise"
+            },
+            {
+                "workoutName": "Band Side Step"
+            }
+        ]
     }
 ]
-
