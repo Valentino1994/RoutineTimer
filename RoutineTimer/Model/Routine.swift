@@ -10,17 +10,13 @@ import SwiftData
 
 @Model
 final class Routine {
-    @Attribute(.unique, originalName: "routine_id") var routineId: UUID
-    var split: Int
+    @Attribute(.unique, originalName: "routine_id") var routineId: UUID = UUID()
     @Attribute(originalName: "created_at") var createdAt: Date
     @Attribute(originalName: "updated_at") var updatedAt: Date
     
-    @Relationship(inverse: \Split.routine)
-    var splits:[Split]? = []
+    var splits:[Split]?
     
-    init(routineId: UUID, split: Int, createdAt: Date, updatedAt: Date) {
-        self.routineId = routineId
-        self.split = split
+    init(createdAt: Date, updatedAt: Date) {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }

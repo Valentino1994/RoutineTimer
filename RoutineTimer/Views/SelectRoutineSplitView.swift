@@ -35,19 +35,19 @@ struct SelectRoutineSplitView: View {
                 
                 VStack {
                     HStack {
-                        SplitCircleButton(circleId: 0, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 0, hi: routines.last?.splits?.count ?? 0, selectedSplitId: $selectedSplitId)
                         Spacer()
-                        SplitCircleButton(circleId: 2, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 2, hi: routines.last?.splits?.count ?? 0, selectedSplitId: $selectedSplitId)
                         Spacer()
-                        SplitCircleButton(circleId: 3, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 3, hi: routines.last?.splits?.count ?? 0, selectedSplitId: $selectedSplitId)
                     }
                     
                     HStack {
-                        SplitCircleButton(circleId: 4, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 4, hi: routines.last?.splits?.count ?? 0, selectedSplitId: $selectedSplitId)
                         Spacer()
-                        SplitCircleButton(circleId: 5, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 5, hi: routines.last?.splits?.count ?? 0, selectedSplitId: $selectedSplitId)
                         Spacer()
-                        SplitCircleButton(circleId: 6, hi: routines.last?.split ?? 0, selectedSplitId: $selectedSplitId)
+                        SplitCircleButton(circleId: 6, hi: routines.last?.splits?.count ?? 0, selectedSplitId: $selectedSplitId)
                     }
                     .padding(.top, 18)
                 }
@@ -76,16 +76,16 @@ extension SelectRoutineSplitView {
     func SaveRoutine(selectedSplitId: Int) {
         // Generate Routine
         let routineId = UUID()
-        let routine = Routine(routineId: routineId, split: selectedSplitId, createdAt: Date(), updatedAt: Date())
+        let routine = Routine(createdAt: Date(), updatedAt: Date())
         
         // Generate Splits
         var splits: [Split] = []
         if (selectedSplitId == 0) {
-            let split = Split(splitId: UUID(), routineId: routineId, isDone: false, createdAt: Date(), updatedAt: Date())
+            let split = Split(isDone: false, createdAt: Date(), updatedAt: Date())
             splits.append(split)
         } else {
             for _ in 0..<selectedSplitId {
-                let split = Split(splitId: UUID(), routineId: routineId, isDone: false, createdAt: Date(), updatedAt: Date())
+                let split = Split(isDone: false, createdAt: Date(), updatedAt: Date())
                 splits.append(split)
             }
         }
@@ -101,17 +101,16 @@ extension SelectRoutineSplitView {
     }
     
     func EditRoutine(routine: Routine, selectedSplitId: Int) {
-        routine.split = selectedSplitId
         routine.updatedAt = Date()
         
         // Generate Splits
         var splits: [Split] = []
         if (selectedSplitId == 0) {
-            let split = Split(splitId: UUID(), routineId: routine.routineId, isDone: false, createdAt: Date(), updatedAt: Date())
+            let split = Split(isDone: false, createdAt: Date(), updatedAt: Date())
             splits.append(split)
         } else {
             for _ in 0..<selectedSplitId {
-                let split = Split(splitId: UUID(), routineId: routine.routineId, isDone: false, createdAt: Date(), updatedAt: Date())
+                let split = Split(isDone: false, createdAt: Date(), updatedAt: Date())
                 splits.append(split)
             }
         }

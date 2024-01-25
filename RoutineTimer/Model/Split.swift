@@ -10,24 +10,18 @@ import SwiftData
 
 @Model
 final class Split {
-    @Attribute(.unique, originalName: "split_id") var splitId: UUID
-    @Attribute(originalName: "routine_id") var routineId: UUID
+    @Attribute(.unique, originalName: "split_id") var splitId: UUID = UUID()
     @Attribute(originalName: "is_done") var isDone: Bool
     @Attribute(originalName: "split_date") var splitDate: Date?
     @Attribute(originalName: "created_at") var createdAt: Date
     @Attribute(originalName: "updated_at") var updatedAt: Date
     
-    var routine: Routine
-    
     var exercises: [Workout]? = [Workout]()
     
-    init(splitId: UUID, routineId: UUID, isDone: Bool, createdAt: Date, updatedAt: Date, routine: Routine) {
-        self.splitId = splitId
-        self.routineId = routineId
+    init(isDone: Bool, createdAt: Date, updatedAt: Date) {
         self.isDone = isDone
         self.createdAt = createdAt
         self.updatedAt = updatedAt
-        self.routine = routine
     }
 }
 

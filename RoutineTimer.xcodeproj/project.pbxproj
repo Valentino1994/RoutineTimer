@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		223CD2932B53C85000459FC9 /* RoutineTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2922B53C85000459FC9 /* RoutineTimerApp.swift */; };
 		223CD2952B53C85000459FC9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2942B53C85000459FC9 /* ContentView.swift */; };
-		223CD2972B53C85000459FC9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2962B53C85000459FC9 /* Item.swift */; };
 		223CD2992B53C85100459FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223CD2982B53C85100459FC9 /* Assets.xcassets */; };
 		223CD29C2B53C85100459FC9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223CD29B2B53C85100459FC9 /* Preview Assets.xcassets */; };
 		223CD2A42B53CB4700459FC9 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2A32B53CB4700459FC9 /* Routine.swift */; };
@@ -28,6 +27,7 @@
 		223CD2C02B5EA58900459FC9 /* WorkoutName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2BF2B5EA58900459FC9 /* WorkoutName.swift */; };
 		55281F142B61020F00B6D41B /* CustomContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55281F132B61020F00B6D41B /* CustomContainer.swift */; };
 		55281F192B6107E900B6D41B /* CustomJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55281F182B6107E900B6D41B /* CustomJSONDecoder.swift */; };
+		55281F1B2B61EC7400B6D41B /* DefaultWorkoutType.json in Resources */ = {isa = PBXBuildFile; fileRef = 55281F1A2B61EC7400B6D41B /* DefaultWorkoutType.json */; };
 		5553FE562B54E74C00501984 /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553FE552B54E74B00501984 /* RoutineView.swift */; };
 		5553FE582B54F79100501984 /* SplitBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553FE572B54F79100501984 /* SplitBlock.swift */; };
 		5553FE5A2B55088900501984 /* RoutineBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553FE592B55088900501984 /* RoutineBlock.swift */; };
@@ -47,7 +47,6 @@
 		223CD28F2B53C85000459FC9 /* RoutineTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutineTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223CD2922B53C85000459FC9 /* RoutineTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTimerApp.swift; sourceTree = "<group>"; };
 		223CD2942B53C85000459FC9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		223CD2962B53C85000459FC9 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		223CD2982B53C85100459FC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		223CD29B2B53C85100459FC9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		223CD2A32B53CB4700459FC9 /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
@@ -65,8 +64,8 @@
 		223CD2BD2B55612E00459FC9 /* WorkoutBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBlock.swift; sourceTree = "<group>"; };
 		223CD2BF2B5EA58900459FC9 /* WorkoutName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutName.swift; sourceTree = "<group>"; };
 		55281F132B61020F00B6D41B /* CustomContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContainer.swift; sourceTree = "<group>"; };
-		55281F172B61032600B6D41B /* DefaultWorkoutType.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultWorkoutType.json; sourceTree = "<group>"; };
 		55281F182B6107E900B6D41B /* CustomJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomJSONDecoder.swift; sourceTree = "<group>"; };
+		55281F1A2B61EC7400B6D41B /* DefaultWorkoutType.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultWorkoutType.json; sourceTree = "<group>"; };
 		5553FE552B54E74B00501984 /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		5553FE572B54F79100501984 /* SplitBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitBlock.swift; sourceTree = "<group>"; };
 		5553FE592B55088900501984 /* RoutineBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBlock.swift; sourceTree = "<group>"; };
@@ -116,7 +115,7 @@
 				223CD2A22B53CB2D00459FC9 /* Model */,
 				223CD2922B53C85000459FC9 /* RoutineTimerApp.swift */,
 				223CD2942B53C85000459FC9 /* ContentView.swift */,
-				223CD2962B53C85000459FC9 /* Item.swift */,
+				55281F1A2B61EC7400B6D41B /* DefaultWorkoutType.json */,
 				223CD2982B53C85100459FC9 /* Assets.xcassets */,
 				223CD29A2B53C85100459FC9 /* Preview Content */,
 			);
@@ -194,7 +193,6 @@
 		55281F162B6102ED00B6D41B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				55281F172B61032600B6D41B /* DefaultWorkoutType.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -258,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				223CD29C2B53C85100459FC9 /* Preview Assets.xcassets in Resources */,
+				55281F1B2B61EC7400B6D41B /* DefaultWorkoutType.json in Resources */,
 				223CD2992B53C85100459FC9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +290,6 @@
 				5553FE6A2B56471500501984 /* AddWorkoutDetailRepeatsPopup.swift in Sources */,
 				223CD2BC2B55611600459FC9 /* AddWorkoutTypeView.swift in Sources */,
 				5553FE682B5646AD00501984 /* AddWorkoutDetailWeightsPopup.swift in Sources */,
-				223CD2972B53C85000459FC9 /* Item.swift in Sources */,
 				5553FE6C2B56472100501984 /* AddWorkoutDetailSetsPopup.swift in Sources */,
 				223CD2A42B53CB4700459FC9 /* Routine.swift in Sources */,
 				223CD2932B53C85000459FC9 /* RoutineTimerApp.swift in Sources */,

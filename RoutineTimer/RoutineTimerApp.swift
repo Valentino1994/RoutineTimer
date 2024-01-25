@@ -10,6 +10,8 @@ import SwiftData
 
 @main
 struct RoutineTimerApp: App {
+    @AppStorage("isFirstTimeLaunch") private var isFirstTimeLaunch: Bool = true
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Routine.self, Split.self, Workout.self, WorkoutType.self, WorkoutName.self
@@ -27,6 +29,6 @@ struct RoutineTimerApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(CustomContainer.create(shouldCreateDefaults: &isFirstTimeLaunch))
     }
 }

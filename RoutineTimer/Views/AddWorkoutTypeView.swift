@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddWorkoutTypeView: View {
     @Binding var isAddWorkoutVisible: Bool
@@ -20,6 +21,8 @@ struct AddWorkoutTypeView: View {
         "Biceps",
         "Triceps"
     ]
+    
+    @Query var workoutTypes: [WorkoutType]
     
     var body: some View {
         NavigationView {
@@ -37,11 +40,11 @@ struct AddWorkoutTypeView: View {
                 .padding(.horizontal, 18)
                 
                 ScrollView {
-                    ForEach(bodyTypes, id: \.self) { bodyType in
+                    ForEach(workoutTypes, id: \.self) { workoutType in
                         NavigationLink(
-                            destination: AddWorkoutNameView(step: .constant(1), bodyType: bodyType),
+                            destination: AddWorkoutNameView(step: .constant(1), bodyType: workoutType.workoutBodyType),
                             label: {
-                                ExerciseBlock(text: bodyType)
+                                ExerciseBlock(text: workoutType.workoutBodyType)
                                     .frame(width: 360, height: 80)
                                     .padding(.bottom, 10)
                             }

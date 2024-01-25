@@ -10,13 +10,10 @@ import SwiftData
 
 @Model
 class WorkoutName {
-    @Attribute(.unique) var workoutNameId: UUID
+    @Attribute(.unique) var workoutNameId: UUID = UUID()
     var workoutName: String
-    var workoutType: WorkoutType
     
-    init(workoutNameId: UUID, workoutName: String, workoutType: WorkoutType) {
-        self.workoutNameId = workoutNameId
+    init(workoutName: String, workoutType: WorkoutType) {
         self.workoutName = workoutName
-        self.workoutType = workoutType
     }
 }

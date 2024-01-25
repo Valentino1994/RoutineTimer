@@ -15,7 +15,7 @@ struct SplitBlock: View {
     
     var body: some View {
         HStack {
-            if let split = routines.last?.split {
+            if let split = routines.last?.splits?.count {
                 Text("\(split) Splits")
                     .font(.title)
                     .fontWeight(.bold)

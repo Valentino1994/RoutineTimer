@@ -15,20 +15,18 @@ class WorkoutType: Codable {
         case workoutBodyType
     }
     
-    @Attribute(.unique) var workoutTypeId: UUID
+    @Attribute(.unique) var workoutTypeId: UUID = UUID()
     var workoutBodyType: String
     
     @Relationship(deleteRule: .cascade, originalName: "workout_names")
     var workoutNames: [WorkoutName]? = []
     
-    init(workoutTypeId: UUID, workoutBodyType: String) {
-        self.workoutTypeId = workoutTypeId
+    init(workoutBodyType: String) {
         self.workoutBodyType = workoutBodyType
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.workoutTypeId = try container.decode(UUID.self, forKey: .workoutTypeId)
         self.workoutBodyType = try container.decode(String.self, forKey: .workoutBodyType)
     }
 

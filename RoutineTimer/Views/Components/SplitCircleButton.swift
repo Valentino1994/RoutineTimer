@@ -17,7 +17,7 @@ struct SplitCircleButton: View {
     
     var body: some View {
         ZStack() {
-            if (routines.last?.split ?? -1 != circleId && selectedSplitId != circleId) {
+            if (routines.last?.splits?.count ?? -1 != circleId && selectedSplitId != circleId) {
                 Circle()
                     .stroke(style: StrokeStyle(lineWidth: 2, dash: [5]))
                     .frame(width: 100, height: 100)
@@ -50,7 +50,7 @@ struct SplitCircleButton: View {
         .frame(width: 100, height: 100)
         .onTapGesture {
             selectedSplitId = circleId
-            routines.last?.split = -1
+            routines.last?.splits = []
         }
     }
 }
