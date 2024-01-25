@@ -11,7 +11,6 @@ import SwiftData
 struct RoutineView: View {
     @State var isTimerPopupVisible: Bool = false
     @State var isAddWorkoutVisible: Bool = false
-    @Query(sort: \Routine.createdAt, order: .forward) private var routines: [Routine]
     var split: Split
     
     var body: some View {
@@ -22,9 +21,16 @@ struct RoutineView: View {
                         Text("My Routines")
                             .font(.title)
                             .fontWeight(.bold)
-                        Text("Last Time : Perfect")
-                            .font(.caption)
-                            .fontWeight(.bold)
+                        if let lastTime = split.lastTime {
+                            Text("Last Time : \(lastTime)")
+                                .font(.caption)
+                                .fontWeight(.bold)
+                        } else {
+                            Text("Let's do your first workout !")
+                                .font(.caption)
+                                .fontWeight(.bold)
+                        }
+                        
                     }
                     Spacer()
                     Button(action: {
@@ -39,22 +45,18 @@ struct RoutineView: View {
                 .padding(.vertical)
                 
                 HStack {
-                    Text("Back")
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .foregroundColor(.white)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.white, lineWidth: 1.5)
-                        )
-                    Text("Triceps")
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .foregroundColor(.white)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.white, lineWidth: 1.5)
-                        )
+                    if let workouts = split.workouts {
+                        ForEach(makeWorkoutTypeArr(workouts: workouts), id: \.self) { workoutType in
+                            Text(workoutType)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                                .foregroundColor(.white)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(.white, lineWidth: 1.5)
+                                )
+                        }
+                    }
                     Spacer()
                     Button(action: {
                         isAddWorkoutVisible.toggle()
@@ -69,7 +71,7 @@ struct RoutineView: View {
                 .padding(.bottom, 10)
                 
                 ScrollView {
-                    if let workouts = routines.last?.splits?[0].workouts {
+                    if let workouts = split.workouts {
                         ForEach(workouts, id: \.self) { workout in
                             NavigationLink(
                                 destination: WorkoutDetailView(sample: 1),
@@ -97,6 +99,16 @@ struct RoutineView: View {
     }
 }
 
-#Preview {
-    RoutineView(split: Split(isDone: true, createdAt: Date(), updatedAt: Date()))
+extension RoutineView {
+    func makeWorkoutTypeArr(workouts: [Workout]) -> [String] {
+        var result: [String] = []
+        
+        for workout in workouts {
+            if !result.contains(workout.workoutType) {
+                result.append(workout.workoutType)
+            }
+        }
+        
+        return result
+    }
 }
