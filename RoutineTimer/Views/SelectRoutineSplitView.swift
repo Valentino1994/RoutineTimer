@@ -55,9 +55,9 @@ struct SelectRoutineSplitView: View {
                 
                 Button(action: {
                     if isEdit {
-                        EditRoutine(routine: routines.last!, selectedSplitId: selectedSplitId)
+                        editRoutine(routine: routines.last!, selectedSplitId: selectedSplitId)
                     } else {
-                        SaveRoutine(selectedSplitId: selectedSplitId)
+                        saveRoutine(selectedSplitId: selectedSplitId)
                     }
                     isSplitPopupVisible = false
                     isFirstPopupVisible = false
@@ -73,9 +73,8 @@ struct SelectRoutineSplitView: View {
 }
 
 extension SelectRoutineSplitView {
-    func SaveRoutine(selectedSplitId: Int) {
+    func saveRoutine(selectedSplitId: Int) {
         // Generate Routine
-        let routineId = UUID()
         let routine = Routine(createdAt: Date(), updatedAt: Date())
         
         // Generate Splits
@@ -100,7 +99,7 @@ extension SelectRoutineSplitView {
         modelContext.insert(routine)
     }
     
-    func EditRoutine(routine: Routine, selectedSplitId: Int) {
+    func editRoutine(routine: Routine, selectedSplitId: Int) {
         routine.updatedAt = Date()
         
         // Generate Splits

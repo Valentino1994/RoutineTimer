@@ -11,8 +11,9 @@ struct AddWorkoutNameView: View {
     @Binding var step: Int
     @State var isAddWorkoutNamePopupVisible: Bool = false
     var workoutNames: [WorkoutName]
-    
+    var workoutType: WorkoutType
     var bodyType: String = ""
+    
     var body: some View {
         VStack {
             CustomStatusBar(step: $step)
@@ -51,7 +52,7 @@ struct AddWorkoutNameView: View {
         }
         .navigationBarTitle("Name", displayMode: .inline)
         .sheet(isPresented: $isAddWorkoutNamePopupVisible) {
-            AddWorkoutNamePopup(isAddWorkoutNamePopupVisible: $isAddWorkoutNamePopupVisible)
+            AddWorkoutNamePopup(isAddWorkoutNamePopupVisible: $isAddWorkoutNamePopupVisible, workoutType: workoutType)
                 .presentationDetents([.height(300)])
         }
         .preferredColorScheme(.dark)
@@ -59,5 +60,5 @@ struct AddWorkoutNameView: View {
 }
 
 #Preview {
-    AddWorkoutNameView(step: .constant(1), workoutNames: [])
+    AddWorkoutNameView(step: .constant(1), workoutNames: [], workoutType: WorkoutType(workoutBodyType: "hi"))
 }
