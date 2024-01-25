@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddWorkoutDetailsView: View {
     @Binding var step: Int
+    @Binding var isAddWorkoutVisible: Bool
     @State private var isWorkout = 0
     @State var isAddWorkoutDetailWeightsPopupVisible: Bool = false
     @State var isAddWorkoutDetailRepeatsPopupVisible: Bool = false
@@ -114,6 +115,7 @@ struct AddWorkoutDetailsView: View {
             Button(action: {
                 print("Saved")
                 saveWorkout()
+                isAddWorkoutVisible.toggle()
             }) {
                 ConfirmTextButton(title: "Confirm")
                     .padding(.top, 28)
@@ -182,7 +184,6 @@ extension AddWorkoutDetailsView {
     }
 }
 
-
 #Preview {
-    AddWorkoutDetailsView(step: .constant(2), workoutType: WorkoutType(workoutBodyType: "hi"), workoutName: "workoutName", split: Split(isDone: true, createdAt: Date(), updatedAt: Date()))
+    AddWorkoutDetailsView(step: .constant(2), isAddWorkoutVisible: .constant(true), workoutType: WorkoutType(workoutBodyType: "hi"), workoutName: "workoutName", split: Split(isDone: true, createdAt: Date(), updatedAt: Date()))
 }

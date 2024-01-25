@@ -14,6 +14,7 @@ struct AddWorkoutNameView: View {
     var workoutType: WorkoutType
     var bodyType: String = ""
     var split: Split
+    @Binding var isAddWorkoutVisible: Bool
     
     var body: some View {
         VStack {
@@ -41,7 +42,7 @@ struct AddWorkoutNameView: View {
             ScrollView {
                 ForEach(workoutNames, id: \.self) { workoutName in
                     NavigationLink(
-                        destination: AddWorkoutDetailsView(step: .constant(2), workoutType: workoutType, workoutName: workoutName.workoutName, split: split),
+                        destination: AddWorkoutDetailsView(step: .constant(2), isAddWorkoutVisible: $isAddWorkoutVisible, workoutType: workoutType, workoutName: workoutName.workoutName, split: split),
                         label: {
                             ExerciseBlock(text: workoutName.workoutName)
                                 .frame(width: 360, height: 80)
@@ -61,5 +62,5 @@ struct AddWorkoutNameView: View {
 }
 
 #Preview {
-    AddWorkoutNameView(step: .constant(1), workoutNames: [], workoutType: WorkoutType(workoutBodyType: "hi"), split: Split(isDone: true, createdAt: Date(), updatedAt: Date()))
+    AddWorkoutNameView(step: .constant(1), workoutNames: [], workoutType: WorkoutType(workoutBodyType: "hi"), split: Split(isDone: true, createdAt: Date(), updatedAt: Date()), isAddWorkoutVisible: .constant(true))
 }

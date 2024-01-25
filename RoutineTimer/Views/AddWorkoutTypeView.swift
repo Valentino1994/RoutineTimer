@@ -32,7 +32,7 @@ struct AddWorkoutTypeView: View {
                 ScrollView {
                     ForEach(workoutTypes, id: \.self) { workoutType in
                         NavigationLink(
-                            destination: AddWorkoutNameView(step: .constant(1), workoutNames: workoutType.workoutNames ?? [], workoutType: workoutType, bodyType: workoutType.workoutBodyType, split: split),
+                            destination: AddWorkoutNameView(step: .constant(1), workoutNames: workoutType.workoutNames ?? [], workoutType: workoutType, bodyType: workoutType.workoutBodyType, split: split, isAddWorkoutVisible: $isAddWorkoutVisible),
                             label: {
                                 ExerciseBlock(text: workoutType.workoutBodyType)
                                     .frame(width: 360, height: 80)
