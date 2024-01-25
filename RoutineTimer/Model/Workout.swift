@@ -11,18 +11,20 @@ import SwiftData
 @Model
 final class Workout {
     @Attribute(.unique, originalName: "workout_id") var workoutId: UUID = UUID()
-    @Attribute(originalName: "workout_type") var workoutType: WorkoutType
+    @Attribute(originalName: "workout_type") var workoutType: String
     @Attribute(originalName: "workout_name") var workoutName: String
     @Attribute(originalName: "is_rest") var isRest: Bool
     @Attribute(originalName: "is_kilogram") var isKilogram: Bool
-    var weight: Int
+    var weight: Double
     var set: Int
     @Attribute(originalName: "rest_time") var restTime: Int
     var rept: Int
     @Attribute(originalName: "created_at") var createdAt: Date
     @Attribute(originalName: "updated_at") var updatedAt: Date
     
-    init(workoutType: WorkoutType, workoutName: String, isRest: Bool, isKilogram: Bool, weight: Int, set: Int, restTime: Int, rept: Int, createdAt: Date, updatedAt: Date) {
+//    var split: Split?
+    
+    init(workoutType: String, workoutName: String, isRest: Bool, isKilogram: Bool, weight: Double, set: Int, restTime: Int, rept: Int, createdAt: Date, updatedAt: Date) {
         self.workoutType = workoutType
         self.workoutName = workoutName
         self.isRest = isRest

@@ -12,6 +12,7 @@ struct AddWorkoutTypeView: View {
     @Binding var isAddWorkoutVisible: Bool
     @State var step = 0    
     @Query var workoutTypes: [WorkoutType]
+    var split: Split
     
     var body: some View {
         NavigationView {
@@ -31,7 +32,7 @@ struct AddWorkoutTypeView: View {
                 ScrollView {
                     ForEach(workoutTypes, id: \.self) { workoutType in
                         NavigationLink(
-                            destination: AddWorkoutNameView(step: .constant(1), workoutNames: workoutType.workoutNames ?? [], workoutType: workoutType, bodyType: workoutType.workoutBodyType),
+                            destination: AddWorkoutNameView(step: .constant(1), workoutNames: workoutType.workoutNames ?? [], workoutType: workoutType, bodyType: workoutType.workoutBodyType, split: split),
                             label: {
                                 ExerciseBlock(text: workoutType.workoutBodyType)
                                     .frame(width: 360, height: 80)
@@ -55,5 +56,5 @@ struct AddWorkoutTypeView: View {
 }
 
 #Preview {
-    AddWorkoutTypeView(isAddWorkoutVisible: .constant(true))
+    AddWorkoutTypeView(isAddWorkoutVisible: .constant(true), split: Split(isDone: true, createdAt: Date(), updatedAt: Date()))
 }

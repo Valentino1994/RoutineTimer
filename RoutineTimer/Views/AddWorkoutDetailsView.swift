@@ -25,6 +25,12 @@ struct AddWorkoutDetailsView: View {
     @State var minutes: Int = 0
     @State var seconds: Int = 0
     
+    var workoutType: WorkoutType
+    var workoutName: String
+    var split: Split
+    
+    @Environment(\.modelContext) private var modelContext
+    
     var body: some View {
         VStack {
             CustomStatusBar(step: $step)
@@ -107,6 +113,7 @@ struct AddWorkoutDetailsView: View {
             
             Button(action: {
                 print("Saved")
+                saveWorkout()
             }) {
                 ConfirmTextButton(title: "Confirm")
                     .padding(.top, 28)
@@ -161,9 +168,21 @@ extension AddWorkoutDetailsView {
             return "\(weightInteger) . \(weightFloating * 25) lbs"
         }
     }
+    
+    func saveWorkout() {
+        let isKilogram = isPound == 0 ? true : false
+        let isRest = isWorkout == 0 ? true : false
+        let weightForWorkout = Double("\(weightIntegerIndex).\(weightFloatingIndex * 25)")
+        let restTimeForWorkout = (minutes * 60) + seconds
+        
+        let newWorkout = Workout(workoutType: workoutType.workoutBodyType, workoutName: workoutName, isRest: isRest, isKilogram: isKilogram, weight: weightForWorkout ?? 0, set: sets, restTime: restTimeForWorkout, rept: repeats, createdAt: Date(), updatedAt: Date())
+        
+        modelContext.insert(newWorkout)
+        split.workouts?.append(newWorkout)
+    }
 }
 
 
 #Preview {
-    AddWorkoutDetailsView(step: .constant(2))
+    AddWorkoutDetailsView(step: .constant(2), workoutType: WorkoutType(workoutBodyType: "hi"), workoutName: "workoutName", split: Split(isDone: true, createdAt: Date(), updatedAt: Date()))
 }

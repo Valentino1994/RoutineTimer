@@ -16,7 +16,7 @@ final class Split {
     @Attribute(originalName: "created_at") var createdAt: Date
     @Attribute(originalName: "updated_at") var updatedAt: Date
     
-    var exercises: [Workout]? = [Workout]()
+    var workouts: [Workout]? = []
     
     init(isDone: Bool, createdAt: Date, updatedAt: Date) {
         self.isDone = isDone

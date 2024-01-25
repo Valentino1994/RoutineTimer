@@ -9,17 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct RoutineView: View {
-    var sample: String
-    var samples: [Int] = [
-        1,
-        2,
-        3,
-        4
-    ]
     @State var isTimerPopupVisible: Bool = false
     @State var isAddWorkoutVisible: Bool = false
-    @Query(sort: \Routine.createdAt, order: .forward)
-    private var routines: [Routine]
+    @Query(sort: \Routine.createdAt, order: .forward) private var routines: [Routine]
+    var split: Split
     
     var body: some View {
         NavigationStack {
@@ -76,28 +69,19 @@ struct RoutineView: View {
                 .padding(.bottom, 10)
                 
                 ScrollView {
-//                    if let exercises = routines.last?.splits?[0].exercises {
-//                        ForEach(exercises, id: \.self) { sample in
-//                            NavigationLink(
-//                                destination: WorkoutDetailView(sample: "1"),
-//                                label: {
-//                                    RoutineBlock()
-//                                        .frame(width: 360, height: 120)
-//                                        .padding(.bottom, 10)
-//                                }
-//                            )
-//                        }
-//                    } else {
-//                        Text("HI")
-//                    }
-                    ForEach(samples, id: \.self) { sample in
-                        NavigationLink(
-                            destination: WorkoutDetailView(sample: sample),
-                            label: {
-                                WorkoutBlock(workoutType: sample)
-                                    .padding(.bottom, 6)
-                            }
-                        )
+                    if let workouts = routines.last?.splits?[0].workouts {
+                        ForEach(workouts, id: \.self) { workout in
+                            NavigationLink(
+                                destination: WorkoutDetailView(sample: 1),
+                                label: {
+                                    RoutineBlock()
+                                        .frame(width: 360, height: 120)
+                                        .padding(.bottom, 10)
+                                }
+                            )
+                        }
+                    } else {
+                        Text("HI")
                     }
                 }
             }
@@ -107,12 +91,12 @@ struct RoutineView: View {
             TimerView(isTimerPopupVisible: $isTimerPopupVisible)
         }
         .sheet(isPresented: $isAddWorkoutVisible) {
-            AddWorkoutTypeView(isAddWorkoutVisible: $isAddWorkoutVisible)
+            AddWorkoutTypeView(isAddWorkoutVisible: $isAddWorkoutVisible, split: split)
         }
         .preferredColorScheme(.dark)
     }
 }
 
 #Preview {
-    RoutineView(sample: "1")
+    RoutineView(split: Split(isDone: true, createdAt: Date(), updatedAt: Date()))
 }

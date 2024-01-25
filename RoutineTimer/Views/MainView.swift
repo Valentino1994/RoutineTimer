@@ -50,9 +50,9 @@ struct MainView: View {
                 
                 ScrollView {
                     if let splits = routines.last?.splits {
-                        ForEach(splits, id: \.self) { sample in
+                        ForEach(splits, id: \.self) { split in
                             NavigationLink(
-                                destination: RoutineView(sample: "1"),
+                                destination: RoutineView(sample: "1", split: split),
                                 label: {
                                     RoutineBlock()
                                         .frame(width: 360, height: 120)
