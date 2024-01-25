@@ -134,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				55281F152B6102CB00B6D41B /* Utils */,
-				55281F162B6102ED00B6D41B /* Data */,
 				223CD2A32B53CB4700459FC9 /* Routine.swift */,
 				223CD2A52B53CB5800459FC9 /* Split.swift */,
 				223CD2A72B53CB6C00459FC9 /* Workout.swift */,
@@ -188,13 +187,6 @@
 				55281F182B6107E900B6D41B /* CustomJSONDecoder.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		55281F162B6102ED00B6D41B /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

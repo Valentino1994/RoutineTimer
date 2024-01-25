@@ -22,7 +22,7 @@ final class Workout {
     @Attribute(originalName: "created_at") var createdAt: Date
     @Attribute(originalName: "updated_at") var updatedAt: Date
     
-//    var split: Split?
+    var split: Split?
     
     init(workoutType: String, workoutName: String, isRest: Bool, isKilogram: Bool, weight: Double, set: Int, restTime: Int, rept: Int, createdAt: Date, updatedAt: Date) {
         self.workoutType = workoutType

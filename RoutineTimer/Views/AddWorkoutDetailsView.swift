@@ -10,7 +10,7 @@ import SwiftUI
 struct AddWorkoutDetailsView: View {
     @Binding var step: Int
     @Binding var isAddWorkoutVisible: Bool
-    @State private var isWorkout = 0
+    @State private var isRest = 0
     @State var isAddWorkoutDetailWeightsPopupVisible: Bool = false
     @State var isAddWorkoutDetailRepeatsPopupVisible: Bool = false
     @State var isAddWorkoutDetailSetsPopupVisible: Bool = false
@@ -46,7 +46,7 @@ struct AddWorkoutDetailsView: View {
             .padding(.bottom, 10)
             .padding(.horizontal, 20)
             
-            Picker("", selection: self.$isWorkout) {
+            Picker("", selection: self.$isRest) {
                 Text("Workout")
                     .tag(0)
                 Text("Rest")
@@ -56,7 +56,7 @@ struct AddWorkoutDetailsView: View {
             .padding(.bottom, 18)
             .pickerStyle(SegmentedPickerStyle())
             
-            if isWorkout == 0 {
+            if isRest == 0 {
                 VStack(alignment: .leading) {
                     Text("Weights")
                         .font(.title3)
@@ -95,7 +95,6 @@ struct AddWorkoutDetailsView: View {
                             .padding(.bottom, 10)
                     }
                 }
-
             }
             
             VStack(alignment: .leading) {
@@ -164,23 +163,23 @@ struct AddWorkoutDetailsView: View {
 
 extension AddWorkoutDetailsView {
     func calculateWeight(isPound: Int, weightInteger: Int, weightFloating: Int) -> String {
-        if isPound == 0 {
-            return "\(weightInteger) . \(weightFloating * 25) kg"
-        } else {
-            return "\(weightInteger) . \(weightFloating * 25) lbs"
-        }
+        let weightUnit = isPound == 0 ? "kg" : "lbs"
+        return "\(weightInteger) . \(weightFloating * 25) \(weightUnit)"
     }
     
     func saveWorkout() {
         let isKilogram = isPound == 0 ? true : false
-        let isRest = isWorkout == 0 ? true : false
-        let weightForWorkout = Double("\(weightIntegerIndex).\(weightFloatingIndex * 25)")
+        let isRest = isRest == 0 ? false : true
+        let weightFloat = weightIntegerIndex == 0 ? 0 : weightFloatingIndex * 25
+        let weightForWorkout = Double("\(weightIntegerIndex).\(weightFloat)")
         let restTimeForWorkout = (minutes * 60) + seconds
         
         let newWorkout = Workout(workoutType: workoutType.workoutBodyType, workoutName: workoutName, isRest: isRest, isKilogram: isKilogram, weight: weightForWorkout ?? 0, set: sets, restTime: restTimeForWorkout, rept: repeats, createdAt: Date(), updatedAt: Date())
         
+        newWorkout.split = split
         modelContext.insert(newWorkout)
-        split.workouts?.append(newWorkout)
+        
+//        split.workouts?.append(newWorkout)
     }
 }
 

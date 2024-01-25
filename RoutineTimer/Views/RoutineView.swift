@@ -74,7 +74,7 @@ struct RoutineView: View {
                             NavigationLink(
                                 destination: WorkoutDetailView(sample: 1),
                                 label: {
-                                    RoutineBlock()
+                                    WorkoutBlock(workout: workout)
                                         .frame(width: 360, height: 120)
                                         .padding(.bottom, 10)
                                 }
