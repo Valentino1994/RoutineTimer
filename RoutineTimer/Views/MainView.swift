@@ -54,7 +54,7 @@ struct MainView: View {
                             NavigationLink(
                                 destination: RoutineView(split: split),
                                 label: {
-                                    RoutineBlock()
+                                    RoutineBlock(split: split)
                                         .frame(width: 360, height: 120)
                                         .padding(.bottom, 10)
                                 }
