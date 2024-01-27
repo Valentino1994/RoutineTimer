@@ -9,9 +9,7 @@ import SwiftUI
 
 struct AddWorkoutDetailWeightsPopup: View {
     @Binding var isAddWorkoutDetailWeightsPopupVisible: Bool
-    @Binding var isPound: Int
-    
-    @State private var selectedIndex = 0
+    @Binding var isKilogram: Int
     
     @Binding var weightIntegerIndex: Int
     let minIntegerValue: Int = 0
@@ -25,7 +23,7 @@ struct AddWorkoutDetailWeightsPopup: View {
 
     var body: some View {
         VStack {
-            Picker("", selection: self.$isPound) {
+            Picker("", selection: self.$isKilogram) {
                 Text("Kilogram")
                     .tag(0)
                 Text("Pound")
@@ -72,8 +70,4 @@ struct AddWorkoutDetailWeightsPopup: View {
     func value(for index: Int, minValue: Int, step: Int) -> Int {
         return minValue + Int(index) * step
     }
-}
-
-#Preview {
-    AddWorkoutDetailWeightsPopup(isAddWorkoutDetailWeightsPopupVisible: .constant(true), isPound: .constant(0), weightIntegerIndex: .constant(0), weightFloatingIndex: .constant(0))
 }

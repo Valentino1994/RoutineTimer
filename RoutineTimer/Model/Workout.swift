@@ -15,23 +15,27 @@ final class Workout {
     @Attribute(originalName: "workout_name") var workoutName: String
     @Attribute(originalName: "is_rest") var isRest: Bool
     @Attribute(originalName: "is_kilogram") var isKilogram: Bool
-    var weight: Double
+    @Attribute(originalName: "weight_int") var weightInt: Int
+    @Attribute(originalName: "weight_float") var weightFloat: Int
     var set: Int
-    @Attribute(originalName: "rest_time") var restTime: Int
+    @Attribute(originalName: "rest_minute") var restMinute: Int
+    @Attribute(originalName: "rest_second") var restSecond: Int
     var rept: Int
     @Attribute(originalName: "created_at") var createdAt: Date
     @Attribute(originalName: "updated_at") var updatedAt: Date
     
     var split: Split?
     
-    init(workoutType: String, workoutName: String, isRest: Bool, isKilogram: Bool, weight: Double, set: Int, restTime: Int, rept: Int, createdAt: Date, updatedAt: Date) {
+    init(workoutType: String, workoutName: String, isRest: Bool, isKilogram: Bool, weightInt: Int, weightFloat: Int, set: Int, restMinute: Int, restSecond: Int, rept: Int, createdAt: Date, updatedAt: Date) {
         self.workoutType = workoutType
         self.workoutName = workoutName
         self.isRest = isRest
         self.isKilogram = isKilogram
-        self.weight = weight
+        self.weightInt = weightInt
+        self.weightFloat = weightFloat
         self.set = set
-        self.restTime = restTime
+        self.restMinute = restMinute
+        self.restSecond = restSecond
         self.rept = rept
         self.createdAt = createdAt
         self.updatedAt = updatedAt

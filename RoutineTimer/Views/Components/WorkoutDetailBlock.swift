@@ -26,6 +26,7 @@ struct WorkoutDetailBlock: View {
                         .font(.title3)
                         .fontWeight(.semibold)
                         .padding(.top, 20)
+                        .foregroundColor(.white)
                     Spacer()
                     Circle()
                         .stroke(Color(red: 0.83, green: 0.9, blue: 0.15), lineWidth: 3)
@@ -45,29 +46,21 @@ struct WorkoutDetailBlock: View {
 }
 
 extension WorkoutDetailBlock {
-    func calculateSecondsToMinuite(seconds: Int) -> String {
-        if seconds <= 60 {
-            return "\(seconds) s"
-        } else {
-            return "\(Int(seconds / 60))m \(seconds % 60)s"
-        }
-    }
-    
     func findoutText(title: String, workout: Workout) -> String{
         var result: String = ""
         
         if title == "Weights" {
             if workout.isKilogram {
-                result = "\(workout.weight) kg"
+                result = "\(workout.weightInt).\(workout.weightFloat * 25) kg"
             } else {
-                result = "\(workout.weight) lbs"
+                result = "\(workout.weightInt).\(workout.weightFloat * 25) lbs"
             }
         } else if title == "Repeats" {
             result = "\(workout.rept)"
         } else if title == "Sets" {
             result = "\(workout.set)"
         } else {
-            result = "\(calculateSecondsToMinuite(seconds: workout.restTime))"
+            result = workout.restMinute != 0 ? "\(workout.restMinute)m \(workout.restSecond)s" : "\(workout.restSecond)"
         }
         
         return result

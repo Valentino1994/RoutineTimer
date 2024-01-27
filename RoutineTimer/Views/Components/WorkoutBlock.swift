@@ -33,14 +33,14 @@ struct WorkoutBlock: View {
                                     .font(.caption)
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
-                                Text("\(calculateSecondsToMinuite(seconds: workout.restTime)) rest among sets")
+                                Text(workout.restMinute != 0 ? "\(workout.restMinute)m \(workout.restSecond)s rest among sets" : "\(workout.restSecond)s rest among sets")
                                     .font(.caption)
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
                             }
                             Spacer()
                             
-                            Text(workout.isKilogram ? "\(String(format: "%.2f", workout.weight)) kg" : "\(String(format: "%.2f", workout.weight)) lbs")
+                            Text(workout.isKilogram ? "\(workout.weightInt).\(workout.weightFloat * 25) kg" : "\(workout.weightInt).\(workout.weightFloat * 25) lbs")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
@@ -56,7 +56,7 @@ struct WorkoutBlock: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(Color(red: 0.65, green: 0.84, blue: 0.67))
-                        Text(calculateSecondsToMinuite(seconds: workout.restTime))
+                        Text(workout.restMinute != 0 ? "\(workout.restMinute)m \(workout.restSecond)s rest among sets" : "\(workout.restSecond)s rest among sets")
                             .font(.caption)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -75,18 +75,4 @@ struct WorkoutBlock: View {
         )
         .preferredColorScheme(.dark)
     }
-}
-
-extension WorkoutBlock {
-    func calculateSecondsToMinuite(seconds: Int) -> String {
-        if seconds <= 60 {
-            return "\(seconds) sec"
-        } else {
-            return "\(Int(seconds / 60)) min \(seconds % 60) sec"
-        }
-    }
-}
-
-#Preview {
-    WorkoutBlock(workout: Workout(workoutType: "Back", workoutName: "Pull Up", isRest: false, isKilogram: true, weight: 12.5, set: 3, restTime: 120, rept: 6, createdAt: Date(), updatedAt: Date()))
 }

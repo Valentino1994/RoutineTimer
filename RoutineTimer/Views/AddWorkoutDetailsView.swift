@@ -16,7 +16,7 @@ struct AddWorkoutDetailsView: View {
     @State var isAddWorkoutDetailSetsPopupVisible: Bool = false
     @State var isAddWorkoutDetailRestsPopupVisible: Bool = false
     
-    @State var isPound:Int = 0
+    @State var isKilogram:Int = 0
     @State var weights: Int = 0
     @State var weightIntegerIndex: Int = 0
     @State var weightFloatingIndex: Int = 0
@@ -64,7 +64,7 @@ struct AddWorkoutDetailsView: View {
                     Button(action: {
                         isAddWorkoutDetailWeightsPopupVisible.toggle()
                     }) {
-                        ExerciseBlock(text: calculateWeight(isPound: isPound, weightInteger: weightIntegerIndex, weightFloating: weightFloatingIndex))
+                        ExerciseBlock(text: calculateWeight(isPound: isKilogram, weightInteger: weightIntegerIndex, weightFloating: weightFloatingIndex))
                             .frame(width: 358, height: 60)
                             .padding(.bottom, 10)
                     }
@@ -112,8 +112,11 @@ struct AddWorkoutDetailsView: View {
             
             
             Button(action: {
-                print("Saved")
-                saveWorkout()
+                do {
+                    try saveWorkout()
+                } catch {
+                    print("Error: \(error)")
+                }
                 isAddWorkoutVisible.toggle()
             }) {
                 ConfirmTextButton(title: "Confirm")
@@ -126,25 +129,25 @@ struct AddWorkoutDetailsView: View {
         .sheet(isPresented: $isAddWorkoutDetailWeightsPopupVisible) {
             AddWorkoutDetailWeightsPopup(
                 isAddWorkoutDetailWeightsPopupVisible: $isAddWorkoutDetailWeightsPopupVisible,
-                isPound: $isPound,
+                isKilogram: $isKilogram,
                 weightIntegerIndex: $weightIntegerIndex,
                 weightFloatingIndex: $weightFloatingIndex
             )
-                .presentationDetents([.medium])
+            .presentationDetents([.medium])
         }
         .sheet(isPresented: $isAddWorkoutDetailRepeatsPopupVisible) {
             AddWorkoutDetailRepeatsPopup(
                 isAddWorkoutDetailRepeatsPopupVisible: $isAddWorkoutDetailRepeatsPopupVisible,
                 repeats: $repeats
             )
-                .presentationDetents([.medium])
+            .presentationDetents([.medium])
         }
         .sheet(isPresented: $isAddWorkoutDetailSetsPopupVisible) {
             AddWorkoutDetailSetsPopup(
                 isAddWorkoutDetailSetsPopupVisible: $isAddWorkoutDetailSetsPopupVisible,
                 sets: $sets
             )
-                .presentationDetents([.medium])
+            .presentationDetents([.medium])
         }
         .sheet(isPresented: $isAddWorkoutDetailRestsPopupVisible) {
             AddWorkoutDetailRestsPopup(
@@ -152,7 +155,7 @@ struct AddWorkoutDetailsView: View {
                 minutes: $minutes,
                 seconds: $seconds
             )
-                .presentationDetents([.medium])
+            .presentationDetents([.medium])
         }
         .preferredColorScheme(.dark)
         .onAppear() {
@@ -167,20 +170,19 @@ extension AddWorkoutDetailsView {
         return "\(weightInteger) . \(weightFloating * 25) \(weightUnit)"
     }
     
-    func saveWorkout() {
-        let isKilogram = isPound == 0 ? true : false
+    func saveWorkout() throws {
+        let isKilogram = isKilogram == 0 ? true : false
         let isRest = isRest == 0 ? false : true
-        let weightFloat = weightIntegerIndex == 0 ? 0 : weightFloatingIndex * 25
-        let weightForWorkout = Double("\(weightIntegerIndex).\(weightFloat)")
-        let restTimeForWorkout = (minutes * 60) + seconds
         
-        let newWorkout = Workout(workoutType: workoutType.workoutBodyType, workoutName: workoutName, isRest: isRest, isKilogram: isKilogram, weight: weightForWorkout ?? 0, set: sets, restTime: restTimeForWorkout, rept: repeats, createdAt: Date(), updatedAt: Date())
+        let newWorkout = Workout(workoutType: workoutType.workoutBodyType, workoutName: workoutName, isRest: isRest, isKilogram: isKilogram, weightInt: weightIntegerIndex, weightFloat: weightFloatingIndex, set: sets, restMinute: minutes, restSecond: seconds, rept: repeats, createdAt: Date(), updatedAt: Date())
         
         newWorkout.split = split
         modelContext.insert(newWorkout)
+        
+        do {
+            try modelContext.save()
+        } catch {
+            throw NSError(domain: "AddWorkoutDetailsView : model context save error", code: -1, userInfo: nil)
+        }
     }
-}
-
-#Preview {
-    AddWorkoutDetailsView(step: .constant(2), isAddWorkoutVisible: .constant(true), workoutType: WorkoutType(workoutBodyType: "hi"), workoutName: "workoutName", split: Split(isDone: true, createdAt: Date(), updatedAt: Date()))
 }
