@@ -74,7 +74,7 @@ struct RoutineView: View {
                     if let workouts = split.workouts {
                         ForEach(workouts, id: \.self) { workout in
                             NavigationLink(
-                                destination: WorkoutDetailView(sample: 1),
+                                destination: WorkoutDetailView(workout: workout),
                                 label: {
                                     WorkoutBlock(workout: workout)
                                         .frame(width: 360, height: 120)

@@ -178,8 +178,6 @@ extension AddWorkoutDetailsView {
         
         newWorkout.split = split
         modelContext.insert(newWorkout)
-        
-//        split.workouts?.append(newWorkout)
     }
 }
 
