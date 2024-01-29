@@ -26,6 +26,7 @@
 		223CD2BE2B55612E00459FC9 /* WorkoutBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2BD2B55612E00459FC9 /* WorkoutBlock.swift */; };
 		223CD2C02B5EA58900459FC9 /* WorkoutName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2BF2B5EA58900459FC9 /* WorkoutName.swift */; };
 		2276418B2B63DD7100B73DB2 /* WorkoutDetailBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276418A2B63DD7100B73DB2 /* WorkoutDetailBlock.swift */; };
+		2276418D2B661D0300B73DB2 /* SetTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2276418C2B661D0300B73DB2 /* SetTimerView.swift */; };
 		55281F142B61020F00B6D41B /* CustomContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55281F132B61020F00B6D41B /* CustomContainer.swift */; };
 		55281F192B6107E900B6D41B /* CustomJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55281F182B6107E900B6D41B /* CustomJSONDecoder.swift */; };
 		55281F1B2B61EC7400B6D41B /* DefaultWorkoutType.json in Resources */ = {isa = PBXBuildFile; fileRef = 55281F1A2B61EC7400B6D41B /* DefaultWorkoutType.json */; };
@@ -65,6 +66,7 @@
 		223CD2BD2B55612E00459FC9 /* WorkoutBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBlock.swift; sourceTree = "<group>"; };
 		223CD2BF2B5EA58900459FC9 /* WorkoutName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutName.swift; sourceTree = "<group>"; };
 		2276418A2B63DD7100B73DB2 /* WorkoutDetailBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailBlock.swift; sourceTree = "<group>"; };
+		2276418C2B661D0300B73DB2 /* SetTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerView.swift; sourceTree = "<group>"; };
 		55281F132B61020F00B6D41B /* CustomContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContainer.swift; sourceTree = "<group>"; };
 		55281F182B6107E900B6D41B /* CustomJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomJSONDecoder.swift; sourceTree = "<group>"; };
 		55281F1A2B61EC7400B6D41B /* DefaultWorkoutType.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultWorkoutType.json; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				5553FE552B54E74B00501984 /* RoutineView.swift */,
 				5553FE5B2B551F8100501984 /* SettingsView.swift */,
 				223CD2B92B5560FC00459FC9 /* TimerView.swift */,
+				2276418C2B661D0300B73DB2 /* SetTimerView.swift */,
 				223CD2B72B555DCD00459FC9 /* WorkoutDetailView.swift */,
 				223CD2BB2B55611600459FC9 /* AddWorkoutTypeView.swift */,
 				5553FE612B560F6500501984 /* AddWorkoutNameView.swift */,
@@ -267,6 +270,7 @@
 				223CD2BA2B5560FC00459FC9 /* TimerView.swift in Sources */,
 				5553FE6E2B56473300501984 /* AddWorkoutDetailRestsPopup.swift in Sources */,
 				223CD2B42B53CF5B00459FC9 /* SplitCircleButton.swift in Sources */,
+				2276418D2B661D0300B73DB2 /* SetTimerView.swift in Sources */,
 				223CD2B12B53CF0600459FC9 /* SelectRoutineSplitView.swift in Sources */,
 				223CD2B82B555DCD00459FC9 /* WorkoutDetailView.swift in Sources */,
 				223CD2952B53C85000459FC9 /* ContentView.swift in Sources */,
