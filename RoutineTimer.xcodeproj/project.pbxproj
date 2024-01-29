@@ -42,6 +42,9 @@
 		5553FE6A2B56471500501984 /* AddWorkoutDetailRepeatsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553FE692B56471500501984 /* AddWorkoutDetailRepeatsPopup.swift */; };
 		5553FE6C2B56472100501984 /* AddWorkoutDetailSetsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553FE6B2B56472100501984 /* AddWorkoutDetailSetsPopup.swift */; };
 		5553FE6E2B56473300501984 /* AddWorkoutDetailRestsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5553FE6D2B56473300501984 /* AddWorkoutDetailRestsPopup.swift */; };
+		55E373922B675E5F008F3A9F /* SettingBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373912B675E5F008F3A9F /* SettingBlock.swift */; };
+		55E373942B67634C008F3A9F /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373932B67634C008F3A9F /* ContactsView.swift */; };
+		55E373962B67635A008F3A9F /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373952B67635A008F3A9F /* VersionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,9 @@
 		5553FE692B56471500501984 /* AddWorkoutDetailRepeatsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutDetailRepeatsPopup.swift; sourceTree = "<group>"; };
 		5553FE6B2B56472100501984 /* AddWorkoutDetailSetsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutDetailSetsPopup.swift; sourceTree = "<group>"; };
 		5553FE6D2B56473300501984 /* AddWorkoutDetailRestsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutDetailRestsPopup.swift; sourceTree = "<group>"; };
+		55E373912B675E5F008F3A9F /* SettingBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBlock.swift; sourceTree = "<group>"; };
+		55E373932B67634C008F3A9F /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		55E373952B67635A008F3A9F /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,8 @@
 				223CD2B02B53CF0600459FC9 /* SelectRoutineSplitView.swift */,
 				5553FE552B54E74B00501984 /* RoutineView.swift */,
 				5553FE5B2B551F8100501984 /* SettingsView.swift */,
+				55E373932B67634C008F3A9F /* ContactsView.swift */,
+				55E373952B67635A008F3A9F /* VersionView.swift */,
 				223CD2B92B5560FC00459FC9 /* TimerView.swift */,
 				223CD2B72B555DCD00459FC9 /* WorkoutDetailView.swift */,
 				223CD2BB2B55611600459FC9 /* AddWorkoutTypeView.swift */,
@@ -173,12 +181,13 @@
 				223CD2BD2B55612E00459FC9 /* WorkoutBlock.swift */,
 				5553FE5D2B56095B00501984 /* CustomStatusBar.swift */,
 				5553FE5F2B560B6500501984 /* ExerciseBlock.swift */,
+				55E373912B675E5F008F3A9F /* SettingBlock.swift */,
+				2276418A2B63DD7100B73DB2 /* WorkoutDetailBlock.swift */,
 				5553FE632B5612DE00501984 /* AddWorkoutNamePopup.swift */,
 				5553FE672B5646AD00501984 /* AddWorkoutDetailWeightsPopup.swift */,
 				5553FE692B56471500501984 /* AddWorkoutDetailRepeatsPopup.swift */,
 				5553FE6B2B56472100501984 /* AddWorkoutDetailSetsPopup.swift */,
 				5553FE6D2B56473300501984 /* AddWorkoutDetailRestsPopup.swift */,
-				2276418A2B63DD7100B73DB2 /* WorkoutDetailBlock.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -274,6 +283,7 @@
 				55281F142B61020F00B6D41B /* CustomContainer.swift in Sources */,
 				223CD2AD2B53CE4200459FC9 /* MainView.swift in Sources */,
 				5553FE662B56465A00501984 /* AddWorkoutDetailsView.swift in Sources */,
+				55E373922B675E5F008F3A9F /* SettingBlock.swift in Sources */,
 				223CD2BE2B55612E00459FC9 /* WorkoutBlock.swift in Sources */,
 				2276418B2B63DD7100B73DB2 /* WorkoutDetailBlock.swift in Sources */,
 				5553FE582B54F79100501984 /* SplitBlock.swift in Sources */,
@@ -293,8 +303,10 @@
 				5553FE642B5612DE00501984 /* AddWorkoutNamePopup.swift in Sources */,
 				5553FE5E2B56095B00501984 /* CustomStatusBar.swift in Sources */,
 				55281F192B6107E900B6D41B /* CustomJSONDecoder.swift in Sources */,
+				55E373942B67634C008F3A9F /* ContactsView.swift in Sources */,
 				223CD2AF2B53CE4C00459FC9 /* FirstView.swift in Sources */,
 				223CD2A82B53CB6C00459FC9 /* Workout.swift in Sources */,
+				55E373962B67635A008F3A9F /* VersionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
