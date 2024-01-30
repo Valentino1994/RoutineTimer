@@ -90,7 +90,7 @@ struct RoutineView: View {
             .padding(.horizontal, 20)
         }
         .fullScreenCover(isPresented: $isTimerPopupVisible) {
-            TimerView(isTimerPopupVisible: $isTimerPopupVisible)
+            StartTimerView(isTimerPopupVisible: $isTimerPopupVisible)
         }
         .sheet(isPresented: $isAddWorkoutVisible) {
             AddWorkoutTypeView(isAddWorkoutVisible: $isAddWorkoutVisible, split: split)

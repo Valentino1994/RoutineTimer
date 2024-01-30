@@ -21,7 +21,7 @@
 		223CD2B42B53CF5B00459FC9 /* SplitCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2B32B53CF5B00459FC9 /* SplitCircleButton.swift */; };
 		223CD2B62B53CF9300459FC9 /* ConfirmTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2B52B53CF9300459FC9 /* ConfirmTextButton.swift */; };
 		223CD2B82B555DCD00459FC9 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2B72B555DCD00459FC9 /* WorkoutDetailView.swift */; };
-		223CD2BA2B5560FC00459FC9 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2B92B5560FC00459FC9 /* TimerView.swift */; };
+		223CD2BA2B5560FC00459FC9 /* StartTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2B92B5560FC00459FC9 /* StartTimerView.swift */; };
 		223CD2BC2B55611600459FC9 /* AddWorkoutTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2BB2B55611600459FC9 /* AddWorkoutTypeView.swift */; };
 		223CD2BE2B55612E00459FC9 /* WorkoutBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2BD2B55612E00459FC9 /* WorkoutBlock.swift */; };
 		223CD2C02B5EA58900459FC9 /* WorkoutName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CD2BF2B5EA58900459FC9 /* WorkoutName.swift */; };
@@ -46,6 +46,7 @@
 		55E373922B675E5F008F3A9F /* SettingBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373912B675E5F008F3A9F /* SettingBlock.swift */; };
 		55E373942B67634C008F3A9F /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373932B67634C008F3A9F /* ContactsView.swift */; };
 		55E373962B67635A008F3A9F /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373952B67635A008F3A9F /* VersionView.swift */; };
+		55E373982B688FDC008F3A9F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373972B688FDC008F3A9F /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +65,7 @@
 		223CD2B32B53CF5B00459FC9 /* SplitCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCircleButton.swift; sourceTree = "<group>"; };
 		223CD2B52B53CF9300459FC9 /* ConfirmTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTextButton.swift; sourceTree = "<group>"; };
 		223CD2B72B555DCD00459FC9 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
-		223CD2B92B5560FC00459FC9 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		223CD2B92B5560FC00459FC9 /* StartTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTimerView.swift; sourceTree = "<group>"; };
 		223CD2BB2B55611600459FC9 /* AddWorkoutTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutTypeView.swift; sourceTree = "<group>"; };
 		223CD2BD2B55612E00459FC9 /* WorkoutBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBlock.swift; sourceTree = "<group>"; };
 		223CD2BF2B5EA58900459FC9 /* WorkoutName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutName.swift; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		55E373912B675E5F008F3A9F /* SettingBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBlock.swift; sourceTree = "<group>"; };
 		55E373932B67634C008F3A9F /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		55E373952B67635A008F3A9F /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
+		55E373972B688FDC008F3A9F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +166,7 @@
 				5553FE5B2B551F8100501984 /* SettingsView.swift */,
 				55E373932B67634C008F3A9F /* ContactsView.swift */,
 				55E373952B67635A008F3A9F /* VersionView.swift */,
-				223CD2B92B5560FC00459FC9 /* TimerView.swift */,
+				223CD2B92B5560FC00459FC9 /* StartTimerView.swift */,
 				2276418C2B661D0300B73DB2 /* SetTimerView.swift */,
 				223CD2B72B555DCD00459FC9 /* WorkoutDetailView.swift */,
 				223CD2BB2B55611600459FC9 /* AddWorkoutTypeView.swift */,
@@ -191,6 +193,7 @@
 				5553FE692B56471500501984 /* AddWorkoutDetailRepeatsPopup.swift */,
 				5553FE6B2B56472100501984 /* AddWorkoutDetailSetsPopup.swift */,
 				5553FE6D2B56473300501984 /* AddWorkoutDetailRestsPopup.swift */,
+				55E373972B688FDC008F3A9F /* TimerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -276,7 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5553FE622B560F6500501984 /* AddWorkoutNameView.swift in Sources */,
-				223CD2BA2B5560FC00459FC9 /* TimerView.swift in Sources */,
+				223CD2BA2B5560FC00459FC9 /* StartTimerView.swift in Sources */,
 				5553FE6E2B56473300501984 /* AddWorkoutDetailRestsPopup.swift in Sources */,
 				223CD2B42B53CF5B00459FC9 /* SplitCircleButton.swift in Sources */,
 				2276418D2B661D0300B73DB2 /* SetTimerView.swift in Sources */,
@@ -303,6 +306,7 @@
 				5553FE6C2B56472100501984 /* AddWorkoutDetailSetsPopup.swift in Sources */,
 				223CD2A42B53CB4700459FC9 /* Routine.swift in Sources */,
 				223CD2932B53C85000459FC9 /* RoutineTimerApp.swift in Sources */,
+				55E373982B688FDC008F3A9F /* TimerView.swift in Sources */,
 				223CD2A62B53CB5800459FC9 /* Split.swift in Sources */,
 				5553FE642B5612DE00501984 /* AddWorkoutNamePopup.swift in Sources */,
 				5553FE5E2B56095B00501984 /* CustomStatusBar.swift in Sources */,

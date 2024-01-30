@@ -20,7 +20,7 @@ struct ContactsView: View {
             .padding(.bottom, 20)
             
             VStack(alignment: .leading) {
-                Text("If there is any idea or inconvenience for this app, just mail to me.")
+                Text("If there is any idea or inconvenience for this app, just mail to me please.")
                 Text("Thank you")
                     .padding(.top, 3)
             }

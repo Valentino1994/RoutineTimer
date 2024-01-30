@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct TimerView: View {
+struct StartTimerView: View {
     @State private var isAnimating = false
     @Binding var isTimerPopupVisible: Bool
     @State private var timerHandler: Cancellable?
@@ -41,7 +41,7 @@ struct TimerView: View {
                     )
                     .opacity(0.5)
                     .frame(width: 298, height: 298)
-
+                
                 // Green Circle
                 Circle()
                     .trim(from: 0, to: viewModel.greenCircleTrimValue)
@@ -74,21 +74,20 @@ struct TimerView: View {
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + viewModel.greenCircleAnimationDuration) {
                             viewModel.startRedCircle()
-                        }                    }
+                        }
+                    }
                 
                 Text(!viewModel.isRedCircleVisible ? "Start" :
                         "\(viewModel.countdown)")
                     .font(.system(size: 20, weight: .bold))
                     .foregroundColor(.green)
             }
-            
-            NavigationLink(
-                destination: SetTimerView(), // 대신 이동할 뷰로 변경
-                isActive: $showNextView
-            ) {
-                EmptyView()
-            }
-            .hidden()
+            .navigationDestination(
+                 isPresented: $showNextView) {
+                     SetTimerView(isTimerPopupVisible: $isTimerPopupVisible)
+                      Text("")
+                          .hidden()
+                 }
         }
         .onReceive(viewModel.$countdown) { newValue in
             if newValue == 0 {
@@ -167,5 +166,5 @@ final class CircleProgressViewModel: ObservableObject {
 }
 
 #Preview {
-    TimerView(isTimerPopupVisible: .constant(true))
+    StartTimerView(isTimerPopupVisible: .constant(true))
 }
