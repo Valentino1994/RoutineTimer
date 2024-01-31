@@ -47,6 +47,7 @@
 		55E373942B67634C008F3A9F /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373932B67634C008F3A9F /* ContactsView.swift */; };
 		55E373962B67635A008F3A9F /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373952B67635A008F3A9F /* VersionView.swift */; };
 		55E373982B688FDC008F3A9F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373972B688FDC008F3A9F /* TimerView.swift */; };
+		55E373B62B6A14B2008F3A9F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E373B52B6A14B2008F3A9F /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		55E373932B67634C008F3A9F /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		55E373952B67635A008F3A9F /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
 		55E373972B688FDC008F3A9F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		55E373B52B6A14B2008F3A9F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				223CD2BB2B55611600459FC9 /* AddWorkoutTypeView.swift */,
 				5553FE612B560F6500501984 /* AddWorkoutNameView.swift */,
 				5553FE652B56465A00501984 /* AddWorkoutDetailsView.swift */,
+				55E373B52B6A14B2008F3A9F /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				5553FE5E2B56095B00501984 /* CustomStatusBar.swift in Sources */,
 				55281F192B6107E900B6D41B /* CustomJSONDecoder.swift in Sources */,
 				55E373942B67634C008F3A9F /* ContactsView.swift in Sources */,
+				55E373B62B6A14B2008F3A9F /* TestView.swift in Sources */,
 				223CD2AF2B53CE4C00459FC9 /* FirstView.swift in Sources */,
 				223CD2A82B53CB6C00459FC9 /* Workout.swift in Sources */,
 				55E373962B67635A008F3A9F /* VersionView.swift in Sources */,
